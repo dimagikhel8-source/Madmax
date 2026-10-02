@@ -1,84 +1,229 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-    <title>MAD MAX - AirPods Offer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MAD MAX - AirPods Demo</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            background: #080808;
-            color: white;
             font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 18px 25px;
+            font-size: 26px;
+            font-weight: bold;
             text-align: center;
         }
 
-        .product {
-            max-width: 500px;
-            margin: 60px auto;
-            padding: 30px;
-            border: 2px solid orange;
-            border-radius: 20px;
-            background: #151515;
+        .container {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 20px;
         }
 
-        h1 {
-            color: orange;
-            text-shadow: 0 0 15px red;
+        .product {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .product-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f8f8;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .product-image img {
+            width: 100%;
+            max-width: 400px;
+            height: 360px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .details h1 {
+            font-size: 32px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .demo {
+            display: inline-block;
+            background: #fff3cd;
+            color: #856404;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
         }
 
         .price {
-            font-size: 35px;
-            color: #00ff88;
+            font-size: 38px;
+            color: #e53935;
             font-weight: bold;
+            margin: 20px 0 5px;
+        }
+
+        .offer {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+            line-height: 1.7;
         }
 
         .rules {
-            margin-top: 25px;
-            padding: 20px;
-            border: 1px solid #555;
+            background: #fafafa;
+            border: 1px solid #ddd;
             border-radius: 12px;
-            text-align: left;
-            color: #ddd;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .rules h3 {
+            margin-top: 0;
         }
 
         .buy {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 15px 35px;
-            background: orange;
-            color: black;
-            text-decoration: none;
+            width: 100%;
+            border: none;
+            margin-top: 22px;
+            padding: 16px;
+            background: #ff7a00;
+            color: white;
+            font-size: 18px;
             font-weight: bold;
-            border-radius: 8px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .buy:hover {
+            background: #e86600;
+        }
+
+        footer {
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+            padding: 25px;
+        }
+
+        @media (max-width: 700px) {
+            .product {
+                grid-template-columns: 1fr;
+                padding: 18px;
+            }
+
+            .product-image img {
+                height: 280px;
+            }
+
+            .details h1 {
+                font-size: 27px;
+            }
+
+            .price {
+                font-size: 34px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="product">
+<header>
+    🔥 MAD MAX
+</header>
 
-    <img src="atelierbyvineeth-rN1hLIGV4gE-unsplash.jpg"
-     alt="Wireless earbuds"
-     style="width:280px; height:280px; object-fit:contain; display:block; margin:20px auto; border-radius:12px;">
+<div class="container">
 
-    <p class="price">₹101</p>
+    <div class="product">
 
-    <p>₹101 Offer — नियम एवं शर्तें लागू</p>
+        <div class="product-image">
+            <img src="atelierbyvineeth-rN1hLIGV4gE-unsplash.jpg"
+                 alt="Wireless Earbuds">
+        </div>
 
-    <div class="rules">
-        <h3>⚠️ महत्वपूर्ण नियम</h3>
+        <div class="details">
 
-        <p>• ₹101 देने से AirPods मिलने की गारंटी नहीं है।</p>
-        <p>• AirPods 1 साल के भीतर मिल सकते हैं या नहीं भी मिल सकते हैं।</p>
-        <p>• कोई निश्चित delivery date की गारंटी नहीं है।</p>
-        <p>• भुगतान करने से पहले सभी नियम ध्यान से पढ़ें।</p>
-        <p>• नियम स्वीकार नहीं हैं तो खरीदारी न करें।</p>
+            <span class="demo">DEMO / PRACTICE OFFER</span>
+
+            <h1>🎧 Apple AirPods</h1>
+
+            <p class="offer">
+                Premium wireless earbuds — special ₹101 offer
+            </p>
+
+            <div class="price">₹101</div>
+
+            <div class="info">
+                <strong>Product Details</strong>
+                <p>• Wireless earbuds design</p>
+                <p>• Charging case included in demo image</p>
+                <p>• Modern premium look</p>
+            </div>
+
+            <div class="rules">
+
+                <h3>⚠️ महत्वपूर्ण जानकारी</h3>
+
+                <p>
+                    ₹101 देने पर AirPods मिलने की कोई गारंटी नहीं है।
+                </p>
+
+                <p>
+                    इस page पर दिया गया offer केवल
+                    <strong>Demo / Practice</strong> के लिए है।
+                </p>
+
+                <p>
+                    Product मिल सकता है या नहीं भी मिल सकता।
+                </p>
+
+                <p>
+                    कोई निश्चित delivery date या refund guarantee नहीं है।
+                </p>
+
+            </div>
+
+            <button class="buy"
+                    onclick="alert('यह Demo Button है — अभी कोई वास्तविक payment नहीं ली जा रही है।')">
+                🛒 BUY NOW
+            </button>
+
+        </div>
+
     </div>
 
-    <a class="buy" href="#">BUY NOW</a>
-
 </div>
+
+<footer>
+    © 2026 MAD MAX • Demo / Practice Website
+</footer>
 
 </body>
 </html>
