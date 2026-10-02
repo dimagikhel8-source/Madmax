@@ -3,16 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAD MAX | AirPods 4</title>
+<title>MAD MAX | Online Store</title>
 
 <style>
 *{box-sizing:border-box}
+
 body{
     margin:0;
     font-family:Arial,sans-serif;
-    background:#f3f4f6;
-    color:#171717
+    background:#f4f5f7;
+    color:#222;
 }
+
 header{
     background:#111827;
     color:white;
@@ -20,159 +22,178 @@ header{
     display:flex;
     align-items:center;
     gap:20px;
-    flex-wrap:wrap
+    flex-wrap:wrap;
 }
+
 .logo{
-    font-size:27px;
+    font-size:28px;
     font-weight:900;
-    color:#ff9d00
+    color:#ff9d00;
 }
+
 .search{
     flex:1;
     min-width:220px;
-    padding:13px 16px;
+    padding:13px;
     border:0;
     border-radius:8px;
-    font-size:15px
 }
+
 .cart{
-    font-weight:bold
+    font-weight:bold;
 }
+
+.container{
+    max-width:1200px;
+    margin:25px auto;
+    padding:0 15px;
+}
+
+.title{
+    margin-bottom:20px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:18px;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+.image-box{
+    height:330px;
+    background:#f8f8f8;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.image-box img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.product-name{
+    font-size:23px;
+    font-weight:bold;
+    margin:18px 0 8px;
+}
+
+.price{
+    font-size:30px;
+    color:#d62828;
+    font-weight:bold;
+}
+
+.old-price{
+    color:#777;
+    text-decoration:line-through;
+    font-size:16px;
+    margin-left:8px;
+}
+
+.rating{
+    display:inline-block;
+    background:#16803c;
+    color:white;
+    padding:5px 8px;
+    border-radius:5px;
+    font-size:13px;
+    margin:8px 0;
+}
+
+.features{
+    padding-left:20px;
+    line-height:1.7;
+}
+
+.button{
+    width:100%;
+    border:0;
+    padding:14px;
+    border-radius:9px;
+    background:#ff7a00;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.button:hover{
+    opacity:.9;
+}
+
+.watch-gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin-top:10px;
+}
+
+.watch-gallery img{
+    width:100%;
+    height:80px;
+    object-fit:contain;
+    background:#f7f7f7;
+    border-radius:8px;
+}
+
+.section{
+    background:white;
+    padding:25px;
+    margin-top:25px;
+    border-radius:15px;
+}
+
+.specs{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.spec{
+    background:#f5f5f5;
+    padding:14px;
+    border-radius:8px;
+}
+
 .notice{
     background:#fff7df;
     padding:10px;
     text-align:center;
     font-size:13px;
-    border-bottom:1px solid #ead9a4
 }
-.container{
-    max-width:1200px;
-    margin:25px auto;
-    padding:0 15px
-}
-.product{
-    background:white;
-    border-radius:16px;
-    padding:25px;
-    display:grid;
-    grid-template-columns:48% 52%;
-    gap:30px;
-    box-shadow:0 4px 20px rgba(0,0,0,.08)
-}
-.image-box{
-    min-height:470px;
-    background:#fafafa;
-    border-radius:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:25px
-}
-.image-box img{
-    width:100%;
-    max-width:480px;
-    height:430px;
-    object-fit:contain
-}
-h1{
-    font-size:30px;
-    margin:12px 0
-}
-.brand{
-    color:#666;
-    font-size:14px
-}
-.rating{
-    display:inline-block;
-    background:#16803c;
-    color:white;
-    padding:5px 9px;
-    border-radius:5px;
-    font-size:13px
-}
-.price{
-    font-size:38px;
-    font-weight:bold;
-    margin-top:18px;
-    color:#c62828
-}
-.offer{
-    color:#16803c;
-    font-weight:bold
-}
-.line{
-    border:0;
-    border-top:1px solid #ddd;
-    margin:20px 0
-}
-.features{
-    line-height:1.8;
-    padding-left:20px
-}
-.buttons{
-    display:flex;
-    gap:12px;
-    margin-top:22px
-}
-button{
-    flex:1;
-    border:0;
-    padding:15px;
-    border-radius:9px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer
-}
-.cart-btn{
-    background:#ffd166
-}
-.buy-btn{
-    background:#ff7a00;
-    color:white
-}
-.section{
-    background:white;
-    padding:25px;
-    margin-top:20px;
-    border-radius:14px;
-    box-shadow:0 3px 12px rgba(0,0,0,.06)
-}
-.section h2{
-    margin-top:0;
-    border-bottom:1px solid #ddd;
-    padding-bottom:12px
-}
-.specs{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px
-}
-.spec{
-    background:#f7f7f7;
-    padding:14px;
-    border-radius:8px
-}
-.terms{
-    background:#fff8e8;
-    border-left:4px solid #ff9800;
-    padding:15px;
-    line-height:1.7
-}
+
 footer{
+    margin-top:35px;
+    padding:25px;
     background:#111827;
     color:#aaa;
     text-align:center;
-    padding:25px;
-    margin-top:30px
 }
+
 @media(max-width:750px){
-    .product{grid-template-columns:1fr;padding:15px}
-    .image-box{min-height:320px}
-    .image-box img{height:290px}
-    h1{font-size:25px}
-    .price{font-size:32px}
-    .buttons{flex-direction:column}
-    .specs{grid-template-columns:1fr}
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .image-box{
+        height:280px;
+    }
+
+    .specs{
+        grid-template-columns:1fr;
+    }
 }
 </style>
 </head>
@@ -180,164 +201,157 @@ footer{
 <body>
 
 <header>
+
     <div class="logo">🔥 MAD MAX</div>
-    <input class="search" type="search" placeholder="Search products...">
+
+    <input
+        class="search"
+        type="search"
+        placeholder="Search products..."
+    >
+
     <div class="cart">🛒 Cart</div>
+
 </header>
 
 <div class="notice">
-    MAD MAX product listing • Offer terms लागू
+    MAD MAX Online Store
 </div>
 
 <div class="container">
 
-<div class="product">
+<h2 class="title">🛍️ Featured Products</h2>
 
-<div class="image-box">
-    <img src="atelierbyvineeth-rN1hLIGV4gE-unsplash.jpg"
-         alt="Wireless earbuds">
-</div>
+<div class="products">
 
-<div>
+<!-- AIRPODS -->
 
-    <div class="brand">Apple</div>
+<div class="card">
 
-    <h1>Apple AirPods 4</h1>
-
-    <span class="rating">★ 4.5</span>
-    <span style="color:#666;font-size:14px">
-        Product information
-    </span>
-
-    <hr class="line">
-
-    <div class="price">₹101</div>
-
-    <p class="offer">Special offer</p>
-
-    <p>
-        AirPods 4 features Apple's H2 headphone chip,
-        personalized Spatial Audio and a USB-C charging case.
-    </p>
-
-    <ul class="features">
-        <li>🎧 H2 headphone chip</li>
-        <li>📡 Bluetooth 5.3</li>
-        <li>🔋 Up to 5 hours listening on one charge</li>
-        <li>🔋 Up to 30 hours with charging case</li>
-        <li>💧 IP54 dust, sweat and water resistance</li>
-        <li>🔌 USB-C charging case</li>
-    </ul>
-
-    <div class="buttons">
-        <button class="cart-btn" onclick="demo()">
-            🛒 Add to Cart
-        </button>
-
-        <button class="buy-btn" onclick="demo()">
-            ⚡ BUY NOW
-        </button>
+    <div class="image-box">
+        <img
+            src="atelierbyvineeth-rN1hLIGV4gE-unsplash.jpg"
+            alt="Wireless Earbuds"
+        >
     </div>
 
+    <div class="product-name">
+        Apple AirPods 4
+    </div>
+
+    <span class="rating">★ 4.5</span>
+
+    <p>
+        Wireless earbuds with charging case.
+    </p>
+
+    <div class="price">
+        ₹101
+    </div>
+
+    <ul class="features">
+        <li>H2 headphone chip</li>
+        <li>Bluetooth 5.3</li>
+        <li>USB-C charging case</li>
+        <li>Up to 5 hours listening</li>
+    </ul>
+
+    <button class="button" onclick="demo()">
+        🛒 View Product
+    </button>
+
 </div>
+
+
+<!-- SMART WATCH -->
+
+<div class="card">
+
+    <div class="image-box">
+
+        <img
+            src="Watch_Orange_jpg_81563ebc-ff95-48af-9775-a49919c8014a_jpg_600x.jpg"
+            alt="Smart Watch"
+        >
+
+    </div>
+
+    <div class="watch-gallery">
+
+        <img
+            src="Watch_Orange_jpg_81563ebc-ff95-48af-9775-a49919c8014a_jpg_600x.jpg"
+            alt="Smart Watch"
+        >
+
+        <img
+            src="UltraIntelligentTimepiece_1_1024x.png"
+            alt="Smart Watch"
+        >
+
+        <img
+            src="61NK-fiGLWL.jpg"
+            alt="Smart Watch"
+        >
+
+    </div>
+
+    <div class="product-name">
+        Smart Watch
+    </div>
+
+    <span class="rating">★ 4.5</span>
+
+    <p>
+        Stylish smartwatch with a modern design.
+    </p>
+
+    <div class="price">
+        ₹999
+    </div>
+
+    <ul class="features">
+        <li>⌚ Modern smartwatch design</li>
+        <li>📱 Smart device compatibility</li>
+        <li>🔔 Smart notifications</li>
+        <li>🔋 Rechargeable battery</li>
+    </ul>
+
+    <button class="button" onclick="demo()">
+        🛒 View Product
+    </button>
+
 </div>
+
+</div>
+
+
+<!-- INFORMATION -->
 
 <div class="section">
 
-<h2>📋 Product Details</h2>
-
-<p>
-Apple AirPods 4 are wireless earbuds designed for listening,
-calls and everyday use. They include Apple's H2 headphone chip,
-Adaptive EQ, Voice Isolation and Personalized Spatial Audio.
-</p>
-
-</div>
-
-<div class="section">
-
-<h2>⚙️ Technical Specifications</h2>
+<h2>📦 Why Shop With MAD MAX?</h2>
 
 <div class="specs">
 
 <div class="spec">
-<strong>Model</strong><br>
-AirPods 4
+<strong>🛍️ Products</strong><br>
+Multiple products in one place
 </div>
 
 <div class="spec">
-<strong>Chip</strong><br>
-Apple H2
+<strong>📱 Mobile Friendly</strong><br>
+Designed for phone users
 </div>
 
 <div class="spec">
-<strong>Connectivity</strong><br>
-Bluetooth 5.3
+<strong>🔎 Easy Search</strong><br>
+Find products quickly
 </div>
 
 <div class="spec">
-<strong>Charging</strong><br>
-USB-C
+<strong>🔥 MAD MAX</strong><br>
+Our independent online store
 </div>
-
-<div class="spec">
-<strong>Earbud Weight</strong><br>
-4.3 g each
-</div>
-
-<div class="spec">
-<strong>Earbud Size</strong><br>
-30.2 × 18.3 × 18.1 mm
-</div>
-
-<div class="spec">
-<strong>Water/Dust Resistance</strong><br>
-IP54
-</div>
-
-<div class="spec">
-<strong>Battery</strong><br>
-Up to 5 hours
-</div>
-
-</div>
-</div>
-
-<div class="section">
-
-<h2>📦 What's in the Box</h2>
-
-<ul class="features">
-<li>AirPods 4</li>
-<li>USB-C Charging Case</li>
-<li>Documentation</li>
-<li>USB-C charging cable sold separately</li>
-</ul>
-
-</div>
-
-<div class="section">
-
-<h2>⚠️ Offer Information</h2>
-
-<div class="terms">
-
-<p>
-यह MAD MAX की विशेष offer arrangement है।
-</p>
-
-<p>
-₹101 offer पर product मिलने की कोई guaranteed delivery
-या निश्चित delivery date नहीं दी जा रही है।
-</p>
-
-<p>
-Order/payment से पहले offer की सभी शर्तें पढ़ना जरूरी है।
-</p>
-
-<p>
-यह page Amazon या Apple की official website नहीं है।
-</p>
 
 </div>
 
@@ -346,17 +360,22 @@ Order/payment से पहले offer की सभी शर्तें प�
 </div>
 
 <footer>
-© 2026 MAD MAX • Independent Product Website
+© 2026 MAD MAX • Independent Online Store
 </footer>
 
+
 <script>
+
 function demo(){
+
     alert(
         "MAD MAX\n\n" +
-        "यह Buy/Cart button अभी demonstration mode में है।\n" +
-        "कोई वास्तविक payment नहीं ली जा रही है।"
+        "Product page is being prepared.\n" +
+        "Real payment/order system is not active yet."
     );
+
 }
+
 </script>
 
 </body>
