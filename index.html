@@ -673,6 +673,109 @@ function addMadXP(){
         (madXP / 500 * 100) + "%";
 }
 
+<script>
+document.body.insertAdjacentHTML("beforeend", `
+<style>
+.mm-challenge{
+    width:90%;
+    max-width:1100px;
+    margin:50px auto;
+    padding:25px;
+    background:#06100d;
+    border:1px solid #00ff9c;
+    border-radius:12px;
+    color:#d8fff1;
+}
+
+.mm-challenge h2{
+    color:#00ff9c;
+    margin-top:0;
+}
+
+.mm-question{
+    color:#9bb8ad;
+    line-height:1.7;
+}
+
+.mm-option{
+    display:block;
+    width:100%;
+    margin:10px 0;
+    padding:13px;
+    background:#030705;
+    color:#c9eee0;
+    border:1px solid #245843;
+    border-radius:7px;
+    text-align:left;
+    font-size:15px;
+}
+
+.mm-option:hover{
+    border-color:#00ff9c;
+}
+
+#mmResult{
+    margin-top:15px;
+    font-weight:bold;
+}
+</style>
+
+<section class="mm-challenge" id="mmChallenge">
+
+<h2>🕵️ CYBER CHALLENGE #01</h2>
+
+<p class="mm-question">
+तुम्हें एक message मिलता है:
+<br><br>
+
+<b>
+"URGENT! आपका account बंद होने वाला है।
+अपना password verify करने के लिए अभी link पर click करें!"
+</b>
+
+<br><br>
+
+इसमें सबसे बड़ा warning sign क्या है?
+</p>
+
+<button class="mm-option" onclick="mmAnswer(false)">
+A) Message में urgency create की गई है
+</button>
+
+<button class="mm-option" onclick="mmAnswer(true)">
+B) Unknown link से password माँगा जा रहा है
+</button>
+
+<button class="mm-option" onclick="mmAnswer(false)">
+C) Message छोटा है
+</button>
+
+<div id="mmResult"></div>
+
+</section>
+`);
+
+function mmAnswer(correct){
+
+    let result=document.getElementById("mmResult");
+
+    if(correct){
+
+        result.innerHTML="✅ CORRECT! +50 XP 🎉";
+        result.style.color="#00ff9c";
+
+        if(typeof addMadXP==="function"){
+            addMadXP();
+        }
+
+    }else{
+
+        result.innerHTML=
+        "❌ WRONG! Unknown link और password request बड़ा warning sign है.";
+
+        result.style.color="#ff7777";
+    }
+}
 </script>
 </body>
               </html>
