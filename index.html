@@ -887,6 +887,86 @@ function lab(name){
     font-weight:bold;
 }
 
-</style>
+<script>
+function labMessage(name){
+
+    document.body.insertAdjacentHTML("beforeend", `
+    <div id="newLab" style="
+        position:fixed;
+        inset:0;
+        z-index:99999;
+        background:rgba(0,0,0,.9);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:20px;
+    ">
+
+    <div style="
+        width:100%;
+        max-width:600px;
+        background:#06100d;
+        border:1px solid #00ff9c;
+        border-radius:14px;
+        padding:25px;
+        color:#d8fff1;
+        box-shadow:0 0 30px #00ff9c55;
+    ">
+
+        <button onclick="document.getElementById('newLab').remove()"
+        style="
+            float:right;
+            background:none;
+            border:0;
+            color:#ff6666;
+            font-size:25px;
+        ">✕</button>
+
+        <h2 style="color:#00ff9c">
+            🧪 ${name}
+        </h2>
+
+        <p>Welcome to MAD MAX Cybersecurity Lab.</p>
+
+        <div style="
+            background:#010403;
+            padding:18px;
+            border-radius:8px;
+            color:#00ff9c;
+            font-family:monospace;
+            line-height:1.8;
+        ">
+            &gt; Initializing lab...<br>
+            &gt; Environment: SAFE SIMULATION<br>
+            &gt; Security check: PASSED<br>
+            &gt; Status: READY
+        </div>
+
+        <h3>🎯 Mission 01</h3>
+
+        <p>
+        इस mission में cybersecurity का basic concept
+        सीखना है। यह केवल safe simulation है।
+        </p>
+
+        <button onclick="
+        alert('🎉 Mission Started!\\n\\n+50 XP');
+        "
+        style="
+            width:100%;
+            padding:14px;
+            background:#00d985;
+            border:0;
+            border-radius:7px;
+            font-weight:bold;
+        ">
+        ▶ START MISSION
+        </button>
+
+    </div>
+    </div>
+    `);
+}
+</script>
 </body>
               </html>
