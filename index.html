@@ -1,17 +1,618 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAD MAX TEST</title>
+<title>MAD MAX | Hacker Lab</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    background:#050807;
+    color:#d8fff1;
+    font-family:Arial,sans-serif;
+}
+
+header{
+    padding:18px 6%;
+    border-bottom:1px solid #00ff9c;
+    background:#07100c;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    color:#00ff9c;
+    font-size:25px;
+    font-weight:bold;
+}
+
+.logo span{
+    display:block;
+    font-size:10px;
+    letter-spacing:3px;
+    color:#76ffc8;
+}
+
+nav{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:#b8dacf;
+    text-decoration:none;
+}
+
+nav a:hover{
+    color:#00ff9c;
+}
+
+.hero{
+    min-height:520px;
+    padding:80px 7%;
+    display:flex;
+    align-items:center;
+    background:
+    radial-gradient(circle at 80% 40%,#063d2b,transparent 30%),
+    #050807;
+}
+
+.hero-content{
+    max-width:750px;
+}
+
+.badge{
+    color:#00ff9c;
+    border:1px solid #00ff9c;
+    padding:8px 12px;
+    display:inline-block;
+    font-family:monospace;
+}
+
+h1{
+    font-size:56px;
+    margin:20px 0;
+}
+
+.green{
+    color:#00ff9c;
+    text-shadow:0 0 20px #00ff9c66;
+}
+
+.hero p{
+    color:#9bb8ad;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.btn{
+    display:inline-block;
+    margin:10px 8px 0 0;
+    padding:13px 20px;
+    border:1px solid #00ff9c;
+    border-radius:6px;
+    color:#00ff9c;
+    text-decoration:none;
+}
+
+.btn.main{
+    background:#00d985;
+    color:#00150d;
+    font-weight:bold;
+}
+
+.notice{
+    padding:13px;
+    text-align:center;
+    color:#00ff9c;
+    background:#07150f;
+    border-top:1px solid #123d2e;
+    border-bottom:1px solid #123d2e;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+section{
+    padding:60px 0;
+}
+
+.title{
+    color:#fff;
+    font-size:32px;
+}
+
+.subtitle{
+    color:#78978b;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    background:#08120e;
+    border:1px solid #164635;
+    border-radius:10px;
+    padding:22px;
+}
+
+.card:hover{
+    border-color:#00ff9c;
+}
+
+.icon{
+    font-size:35px;
+}
+
+.card h3{
+    color:#00ff9c;
+}
+
+.card p{
+    color:#8faea2;
+    line-height:1.6;
+}
+
+.level{
+    color:#00ff9c;
+    font-size:12px;
+    font-family:monospace;
+}
+
+.card button{
+    margin-top:15px;
+    padding:10px 15px;
+    background:transparent;
+    border:1px solid #00ff9c;
+    color:#00ff9c;
+    border-radius:5px;
+}
+
+.terminal{
+    background:#020403;
+    border:1px solid #00ff9c;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.terminal-head{
+    padding:12px;
+    background:#07150f;
+    color:#00ff9c;
+    font-family:monospace;
+}
+
+.terminal-body{
+    min-height:280px;
+    padding:20px;
+    color:#00ff9c;
+    font-family:monospace;
+    line-height:1.7;
+}
+
+.terminal-input{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+}
+
+.terminal-input input{
+    flex:1;
+    background:#06100c;
+    border:1px solid #164635;
+    padding:10px;
+    color:#00ff9c;
+    outline:none;
+}
+
+.terminal-input button{
+    background:#00ff9c;
+    border:0;
+    padding:10px 15px;
+}
+
+.challenge{
+    margin-top:25px;
+    background:#08120e;
+    border:1px solid #164635;
+    padding:25px;
+    border-radius:10px;
+}
+
+.challenge h3{
+    color:#00ff9c;
+}
+
+.challenge input{
+    width:100%;
+    padding:12px;
+    background:#020403;
+    border:1px solid #275c4a;
+    color:#00ff9c;
+}
+
+.challenge button{
+    width:100%;
+    margin-top:10px;
+    padding:12px;
+    background:#00d985;
+    border:0;
+    font-weight:bold;
+}
+
+footer{
+    padding:35px;
+    text-align:center;
+    border-top:1px solid #123d2e;
+    color:#66857a;
+}
+
+footer strong{
+    color:#00ff9c;
+}
+
+@media(max-width:750px){
+
+    header{
+        flex-direction:column;
+    }
+
+    nav{
+        justify-content:center;
+    }
+
+    h1{
+        font-size:42px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+}
+</style>
 </head>
 
-<body style="margin:0;background:#111;color:#00ff9c;font-family:Arial;text-align:center;padding:80px 20px;">
+<body>
 
-<h1>MAD MAX</h1>
-<h2>HACKER LAB</h2>
+<header>
+    <div class="logo">
+        ⚡ MAD MAX
+        <span>HACKER LAB</span>
+    </div>
 
-<p>Website is working successfully.</p>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#labs">Labs</a>
+        <a href="#terminal">Terminal</a>
+        <a href="#learn">Learn</a>
+    </nav>
+</header>
+
+<div class="hero" id="home">
+    <div class="hero-content">
+
+        <div class="badge">
+            // CYBER SECURITY LEARNING LAB
+        </div>
+
+        <h1>
+            Learn Cyber Security
+            <br>
+            <span class="green">Like A Hacker</span>
+        </h1>
+
+        <p>
+            Cybersecurity को practical तरीके से सीखो।
+            Safe simulations, challenges और interactive
+            exercises के साथ अपनी skills improve करो।
+        </p>
+
+        <a href="#labs" class="btn main">
+            ▶ Start Learning
+        </a>
+
+        <a href="#terminal" class="btn">
+            &gt; Open Terminal
+        </a>
+
+    </div>
+</div>
+
+<div class="notice">
+    ⚠️ केवल educational और authorized practice के लिए।
+</div>
+
+<section id="labs">
+<div class="container">
+
+    <h2 class="title">🧪 Practice Labs</h2>
+
+    <p class="subtitle">
+        Safe simulated environments में cybersecurity concepts सीखो।
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">⌨️</div>
+            <h3>Terminal Basics</h3>
+            <p>
+                Command line और basic terminal concepts सीखो।
+            </p>
+            <div class="level">LEVEL 01 • BEGINNER</div>
+            <br>
+            <button onclick="lab('Terminal Basics')">
+                Start Lab →
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔐</div>
+            <h3>Password Security</h3>
+            <p>
+                Strong passwords और account security के concepts समझो।
+            </p>
+            <div class="level">LEVEL 01 • BEGINNER</div>
+            <br>
+            <button onclick="lab('Password Security')">
+                Start Lab →
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>Web Security</h3>
+            <p>
+                HTTP requests, responses और basic web security सीखो।
+            </p>
+            <div class="level">LEVEL 02 • INTERMEDIATE</div>
+            <br>
+            <button onclick="lab('Web Security')">
+                Start Lab →
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">📧</div>
+            <h3>Phishing Awareness</h3>
+            <p>
+                Suspicious messages और fake links पहचानना सीखो।
+            </p>
+            <div class="level">LEVEL 01 • BEGINNER</div>
+            <br>
+            <button onclick="lab('Phishing Awareness')">
+                Start Lab →
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🛡️</div>
+            <h3>Security Basics</h3>
+            <p>
+                Authentication, MFA और responsible security concepts।
+            </p>
+            <div class="level">LEVEL 01 • BEGINNER</div>
+            <br>
+            <button onclick="lab('Security Basics')">
+                Start Lab →
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔎</div>
+            <h3>Find The Fake</h3>
+            <p>
+                Fake login और suspicious website के warning signs पहचानो।
+            </p>
+            <div class="level">LEVEL 02 • INTERMEDIATE</div>
+            <br>
+            <button onclick="lab('Find The Fake')">
+                Start Lab →
+            </button>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<section id="terminal">
+
+<div class="container">
+
+    <h2 class="title">💻 MAD MAX Terminal</h2>
+
+    <p class="subtitle">
+        यह केवल educational command simulator है।
+    </p>
+
+    <div class="terminal">
+
+        <div class="terminal-head">
+            ● MAD_MAX_TERMINAL
+        </div>
+
+        <div class="terminal-body" id="output">
+
+            <div>MAD MAX Hacker Lab Terminal</div>
+            <div>Type <b>help</b> to begin.</div>
+
+            <div class="terminal-input">
+                <span>&gt;</span>
+
+                <input
+                    id="command"
+                    placeholder="type command..."
+                    onkeydown="enterKey(event)"
+                >
+
+                <button onclick="runCommand()">
+                    RUN
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<section id="learn">
+
+<div class="container">
+
+    <h2 class="title">🛡️ What You Will Learn</h2>
+
+    <div class="challenge">
+
+        <h3>Cybersecurity Fundamentals</h3>
+
+        <p>
+            🔐 Password security और MFA
+        </p>
+
+        <p>
+            🌐 Websites और HTTP कैसे काम करते हैं
+        </p>
+
+        <p>
+            🕵️ Phishing और suspicious links पहचानना
+        </p>
+
+        <p>
+            🧪 Authorized security testing
+        </p>
+
+        <p>
+            🛡️ Responsible vulnerability reporting
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+<footer>
+
+<strong>⚡ MAD MAX HACKER LAB</strong>
+
+<br><br>
+
+Learn • Practice • Secure
+
+<br><br>
+
+© 2026 MAD MAX
+
+</footer>
+
+<script>
+
+function lab(name){
+
+    alert(
+        "🧪 " + name +
+        "\n\nSafe educational lab coming soon!"
+    );
+
+}
+
+function enterKey(event){
+
+    if(event.key === "Enter"){
+        runCommand();
+    }
+
+}
+
+function runCommand(){
+
+    var input = document.getElementById("command");
+    var output = document.getElementById("output");
+
+    var command = input.value.trim().toLowerCase();
+
+    if(command === ""){
+        return;
+    }
+
+    var line = document.createElement("div");
+
+    line.textContent = "> " + command;
+
+    output.insertBefore(
+        line,
+        document.querySelector(".terminal-input")
+    );
+
+    var response = "";
+
+    if(command === "help"){
+
+        response =
+        "Commands: help | whoami | skills | clear";
+
+    }
+    else if(command === "whoami"){
+
+        response =
+        "MAD MAX student • Cybersecurity learner";
+
+    }
+    else if(command === "skills"){
+
+        response =
+        "Web Security • Linux Basics • Networking • Problem Solving";
+
+    }
+    else if(command === "clear"){
+
+        output.innerHTML =
+        "<div>MAD MAX Terminal cleared.</div>" +
+        "<div class='terminal-input'>" +
+        "<span>&gt;</span>" +
+        "<input id='command' placeholder='type command...' " +
+        "onkeydown='enterKey(event)'>" +
+        "<button onclick='runCommand()'>RUN</button>" +
+        "</div>";
+
+        return;
+    }
+    else{
+
+        response =
+        "Command not available in this educational simulator.";
+
+    }
+
+    var result = document.createElement("div");
+
+    result.textContent = response;
+
+    output.insertBefore(
+        result,
+        document.querySelector(".terminal-input")
+    );
+
+    input.value = "";
+
+}
+
+</script>
 
 </body>
-</html>
+              </html>
