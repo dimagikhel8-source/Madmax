@@ -613,6 +613,66 @@ function runCommand(){
 }
 
 </script>
+<script>
+document.body.insertAdjacentHTML("afterbegin", `
+<style>
+#madmaxXP{
+margin:20px auto;
+width:90%;
+max-width:1100px;
+padding:20px;
+background:#06100d;
+border:1px solid #00ff9c;
+border-radius:12px;
+color:#00ff9c;
+font-family:Arial;
+}
+#madmaxXP h3{margin:0 0 8px}
+#xpbar{
+height:10px;
+background:#17251f;
+border-radius:20px;
+overflow:hidden;
+}
+#xpfill{
+height:100%;
+width:0%;
+background:#00ff9c;
+transition:.4s;
+}
+</style>
 
+<div id="madmaxXP">
+<h3>⚡ HACKER XP</h3>
+<div id="xptxt">LEVEL 01 • BEGINNER — 0 XP</div>
+<br>
+<div id="xpbar"><div id="xpfill"></div></div>
+</div>
+`);
+
+let madXP = 0;
+
+function addMadXP(){
+
+    madXP += 50;
+
+    if(madXP > 500){
+        madXP = 500;
+    }
+
+    document.getElementById("xptxt").textContent =
+        madXP >= 400
+        ? "LEVEL 04 • CYBER GUARDIAN — " + madXP + " XP"
+        : madXP >= 250
+        ? "LEVEL 03 • SECURITY EXPERT — " + madXP + " XP"
+        : madXP >= 100
+        ? "LEVEL 02 • CYBER LEARNER — " + madXP + " XP"
+        : "LEVEL 01 • BEGINNER — " + madXP + " XP";
+
+    document.getElementById("xpfill").style.width =
+        (madXP / 500 * 100) + "%";
+}
+
+</script>
 </body>
               </html>
