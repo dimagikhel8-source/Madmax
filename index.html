@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="hi">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MAD MAX | Online Store</title>
+<title>MAD MAX | Hacker Lab</title>
 
 <style>
 
@@ -13,585 +12,245 @@
     box-sizing:border-box;
 }
 
-html,body{
-    margin:0;
-    padding:0;
-    width:100%;
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#f4f5f7;
-    color:#222;
+    margin:0;
+    background:#030807;
+    color:#d8fff1;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
+/* ===== HEADER ===== */
+
 header{
-    width:100%;
-    background:#111827;
-    color:white;
-    padding:14px 5%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(2,8,7,.96);
+    border-bottom:1px solid #00ff9c;
+    padding:15px 5%;
     display:flex;
     align-items:center;
-    gap:15px;
-    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:20px;
 }
 
 .logo{
-    font-size:27px;
+    color:#00ff9c;
+    font-size:25px;
     font-weight:900;
-    color:#ff9d00;
+    letter-spacing:2px;
 }
 
-.search{
-    flex:1;
-    min-width:180px;
-    padding:12px;
-    border:0;
-    border-radius:8px;
-    font-size:15px;
+.logo small{
+    display:block;
+    color:#6affc5;
+    font-size:9px;
+    letter-spacing:3px;
 }
 
-.cart{
-    font-weight:bold;
-    white-space:nowrap;
-}
-
-.notice{
-    width:100%;
-    background:#fff7df;
-    padding:10px;
-    text-align:center;
-    font-size:14px;
-}
-
-.container{
-    width:100%;
-    max-width:1200px;
-    margin:25px auto;
-    padding:0 15px;
-}
-
-.title{
-    margin-bottom:20px;
-}
-
-.products{
-    width:100%;
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
+nav{
+    display:flex;
     gap:22px;
 }
 
-.card{
-    width:100%;
-    min-width:0;
-    background:white;
-    border-radius:15px;
-    padding:18px;
-    box-shadow:0 4px 18px rgba(0,0,0,.08);
-    overflow:hidden;
-}
-
-.image-box{
-    width:100%;
-    height:300px;
-    background:#f8f8f8;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-}
-
-.image-box img{
-    display:block;
-    width:100%;
-    height:100%;
-    max-width:100%;
-    object-fit:contain;
-}
-
-.product-name{
-    font-size:23px;
-    font-weight:bold;
-    margin:18px 0 8px;
-}
-
-.price{
-    font-size:30px;
-    color:#d62828;
-    font-weight:bold;
-    margin:10px 0;
-}
-
-.rating{
-    display:inline-block;
-    background:#16803c;
-    color:white;
-    padding:5px 8px;
-    border-radius:5px;
-    font-size:13px;
-    margin:8px 0;
-}
-
-.features{
-    padding-left:20px;
-    line-height:1.7;
-}
-
-.button{
-    width:100%;
-    border:0;
-    padding:14px;
-    border-radius:9px;
-    background:#ff7a00;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    margin-top:10px;
-}
-
-.button:hover{
-    opacity:.9;
-}
-
-/* SMART WATCH GALLERY */
-
-.watch-gallery{
-    width:100%;
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:8px;
-    margin-top:10px;
-}
-
-.watch-gallery img{
-    display:block;
-    width:100%;
-    height:80px;
-    max-width:100%;
-    object-fit:contain;
-    background:#f7f7f7;
-    border-radius:8px;
-}
-
-/* WATCH DETAILS */
-
-.watch-details{
-    width:100%;
-    background:#f7f7f7;
-    padding:15px;
-    border-radius:10px;
-    margin-top:15px;
-}
-
-.watch-details h3{
-    margin:0 0 12px;
-}
-
-.watch-details p{
-    margin:8px 0;
+nav a{
+    color:#b9eedd;
+    text-decoration:none;
     font-size:14px;
 }
 
-/* PRODUCT RULES */
-
-.product-rules{
-    width:100%;
-    margin-top:15px;
-    padding:12px;
-    background:#fff7df;
-    border:1px solid #f0d98a;
-    border-radius:10px;
-    font-size:13px;
+nav a:hover{
+    color:#00ff9c;
 }
 
-.product-rules h4{
-    margin:0 0 8px;
-    color:#9a6700;
+/* ===== HERO ===== */
+
+.hero{
+    min-height:570px;
+    padding:80px 7%;
+    display:flex;
+    align-items:center;
+    background:
+        radial-gradient(circle at 75% 45%,rgba(0,255,156,.15),transparent 30%),
+        radial-gradient(circle at 20% 20%,rgba(0,180,255,.08),transparent 30%),
+        #030807;
 }
 
-.product-rules p{
-    margin:5px 0;
-    line-height:1.5;
+.hero-text{
+    max-width:700px;
 }
 
-/* WHY SHOP */
-
-.section{
-    width:100%;
-    background:white;
-    padding:25px;
-    margin-top:25px;
-    border-radius:15px;
+.tag{
+    display:inline-block;
+    padding:8px 14px;
+    border:1px solid #00ff9c;
+    border-radius:5px;
+    color:#00ff9c;
+    font-family:monospace;
+    margin-bottom:20px;
 }
 
-.specs{
+.hero h1{
+    font-size:58px;
+    margin:0;
+    line-height:1.05;
+}
+
+.green{
+    color:#00ff9c;
+    text-shadow:0 0 18px rgba(0,255,156,.5);
+}
+
+.hero p{
+    color:#9bbcb0;
+    max-width:650px;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    margin:10px 8px 0 0;
+    border:1px solid #00ff9c;
+    border-radius:7px;
+    color:#00ff9c;
+    text-decoration:none;
+    font-weight:bold;
+    background:#04130e;
+}
+
+.btn.primary{
+    background:#00d985;
+    color:#00140d;
+}
+
+.btn:hover{
+    box-shadow:0 0 20px rgba(0,255,156,.35);
+}
+
+/* ===== NOTICE ===== */
+
+.notice{
+    padding:13px;
+    text-align:center;
+    background:#06140f;
+    border-top:1px solid #063d2c;
+    border-bottom:1px solid #063d2c;
+    color:#00ff9c;
+    font-family:monospace;
+}
+
+/* ===== SECTION ===== */
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+}
+
+section{
+    padding:65px 0;
+}
+
+.section-title{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.section-sub{
+    color:#79968c;
+    margin-bottom:30px;
+}
+
+/* ===== STATS ===== */
+
+.stats{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    padding:35px 0;
 }
 
-.spec{
-    background:#f5f5f5;
-    padding:14px;
-    border-radius:8px;
-}
-
-/* FOOTER */
-
-footer{
-    width:100%;
-    margin-top:35px;
+.stat{
+    background:#06100d;
+    border:1px solid #123c2f;
+    border-radius:10px;
     padding:25px;
-    background:#111827;
-    color:#aaa;
     text-align:center;
 }
 
-/* MOBILE */
-
-@media(max-width:750px){
-
-    .products{
-        grid-template-columns:1fr;
-    }
-
-    .image-box{
-        height:280px;
-    }
-
-    .watch-gallery img{
-        height:80px;
-    }
-
-    .specs{
-        grid-template-columns:1fr;
-    }
-
-    .container{
-        padding:0 12px;
-    }
-
-    .logo{
-        font-size:24px;
-    }
-
+.stat strong{
+    display:block;
+    color:#00ff9c;
+    font-size:28px;
+    margin-bottom:7px;
 }
 
-</style>
-</head>
-
-
-<body>
-
-<header>
-
-    <div class="logo">🔥 MAD MAX</div>
-
-    <input
-        class="search"
-        type="search"
-        placeholder="Search products..."
-    >
-
-    <div class="cart">🛒 Cart</div>
-
-</header>
-
-
-<div class="notice">
-    🛍️ MAD MAX Online Store
-</div>
-
-
-<div class="container">
-
-<h2 class="title">
-    🛍️ Featured Products
-</h2>
-
-
-<div class="products">
-
-
-<!-- ================= AIRPODS ================= -->
-
-<div class="card">
-
-    <div class="image-box">
-
-        <img
-            src="atelierbyvineeth-rN1hLIGV4gE-unsplash.jpg"
-            alt="Apple AirPods 4"
-        >
-
-    </div>
-
-    <div class="product-name">
-        Apple AirPods 4
-    </div>
-
-    <span class="rating">
-        ★ 4.5
-    </span>
-
-    <p>
-        Wireless earbuds with charging case.
-    </p>
-
-    <div class="price">
-        ₹101
-    </div>
-
-    <ul class="features">
-        <li>🎧 H2 headphone chip</li>
-        <li>📶 Bluetooth 5.3</li>
-        <li>🔌 USB-C charging case</li>
-        <li>🎵 Up to 5 hours listening</li>
-    </ul>
-
-    <button class="button" onclick="demo()">
-        🛒 अभी खरीदें
-    </button>
-
-    <div class="product-rules">
-
-        <h4>⚠️ नियम एवं शर्तें</h4>
-
-        <p>• कीमत और उपलब्धता बदल सकती है।</p>
-        <p>• Order से पहले product details ध्यान से देखें।</p>
-        <p>• Delivery availability और location पर निर्भर करेगी।</p>
-        <p>• Cancellation/Refund लागू policy के अनुसार होगा।</p>
-
-    </div>
-
-</div>
-
-
-<!-- ================= SMART WATCH ================= -->
-
-<div class="card">
-
-    <div class="image-box">
-
-        <img
-            src="Watch_Orange_jpg_81563ebc-ff95-48af-9775-a49919c8014a_jpg_600x.jpg"
-            alt="Smart Watch"
-        >
-
-    </div>
-
-    <div class="watch-gallery">
-
-        <img
-            src="Watch_Orange_jpg_81563ebc-ff95-48af-9775-a49919c8014a_jpg_600x.jpg"
-            alt="Watch Image 1"
-        >
-
-        <img
-            src="UltraIntelligentTimepiece_1_1024x.png"
-            alt="Watch Image 2"
-        >
-
-        <img
-            src="61NK-fiGLWL.jpg"
-            alt="Watch Image 3"
-        >
-
-    </div>
-
-    <div class="product-name">
-        Smart Watch
-    </div>
-
-    <span class="rating">
-        ★ 4.5
-    </span>
-
-    <p>
-        Stylish smartwatch with a modern design.
-    </p>
-
-    <div class="price">
-        ₹51
-    </div>
-
-    <ul class="features">
-        <li>⌚ Stylish modern smartwatch design</li>
-        <li>📱 Android & iOS compatible</li>
-        <li>🔔 Smart notifications</li>
-        <li>🏃 Activity tracking</li>
-        <li>🔋 Rechargeable battery</li>
-    </ul>
-
-    <div class="watch-details">
-
-        <h3>
-            ⌚ Smart Watch की जानकारी
-        </h3>
-
-        <p>
-            <strong>📱 Compatibility:</strong>
-            Android & iOS
-        </p>
-
-        <p>
-            <strong>🔔 Notifications:</strong>
-            Calls & messages
-        </p>
-
-        <p>
-            <strong>🏃 Activity:</strong>
-            Steps & activity tracking
-        </p>
-
-        <p>
-            <strong>🔋 Battery:</strong>
-            Rechargeable
-        </p>
-
-        <p>
-            <strong>🔗 Connectivity:</strong>
-            Bluetooth
-        </p>
-
-    </div>
-
-    <button class="button" onclick="demo()">
-        🛒 अभी खरीदें
-    </button>
-
-    <div class="product-rules">
-
-        <h4>⚠️ नियम एवं शर्तें</h4>
-
-        <p>• कीमत और उपलब्धता बदल सकती है।</p>
-        <p>• Order से पहले product details ध्यान से देखें।</p>
-        <p>• Delivery availability और location पर निर्भर करेगी।</p>
-        <p>• Cancellation/Refund लागू policy के अनुसार होगा।</p>
-
-    </div>
-
-</div>
-
-
-<!-- ================= TWS EARBUDS ================= -->
-
-<div class="card">
-
-    <div class="image-box">
-
-        <img
-            src="1000161535.jpg"
-            alt="TWS Gaming Earbuds"
-        >
-
-    </div>
-
-    <div class="product-name">
-        TWS Gaming Earbuds
-    </div>
-
-    <span class="rating">
-        ★ 4.5
-    </span>
-
-    <p>
-        Stylish wireless gaming earbuds with a modern charging case.
-    </p>
-
-    <div class="price">
-        ₹51
-    </div>
-
-    <ul class="features">
-        <li>🎧 Wireless Bluetooth connectivity</li>
-        <li>🎮 Gaming-style design</li>
-        <li>💡 LED display charging case</li>
-        <li>🔋 Rechargeable battery</li>
-        <li>🎵 Suitable for music & calls</li>
-    </ul>
-
-    <button class="button" onclick="demo()">
-        🛒 अभी खरीदें
-    </button>
-<div class="product-rules">
-    <h4>⚠️ नियम एवं शर्तें</h4>
-
-    <p>• यह एक DEMO/JOKE OFFER है।</p>
-    <p>• Product 1 साल के अंदर मिलेगा या नहीं भी मिलेगा 😄</p>
-    <p>• खरीदने से पहले सोच लेना—इतना सस्ता देखकर भी खरीद रहे हो तो आप खुद जिम्मेदार हैं 😂</p>
-    <p>• इस DEMO page पर कोई वास्तविक payment/order नहीं लिया जा रहा है।</p>
-</div>
-
-</div>
-
-
-</div>
-
-
-<!-- ================= WHY MAD MAX ================= -->
-
-<div class="section">
-
-    <h2>
-        📦 Why Shop With MAD MAX?
-    </h2>
-
-    <div class="specs">
-
-        <div class="spec">
-            <strong>🛍️ Products</strong><br>
-            Multiple products in one place
-        </div>
-
-        <div class="spec">
-            <strong>📱 Mobile Friendly</strong><br>
-            Designed for phone users
-        </div>
-
-        <div class="spec">
-            <strong>🔎 Easy Search</strong><br>
-            Find products quickly
-        </div>
-
-        <div class="spec">
-            <strong>🔥 MAD MAX</strong><br>
-            Our independent online store
-        </div>
-
-    </div>
-
-</div>
-
-
-</div>
-
-
-<footer>
-
-    © 2026 MAD MAX • Independent Online Store
-
-</footer>
-
-
-<script>
-
-function demo(){
-
-    alert(
-        "MAD MAX\n\n" +
-        "Product page is being prepared.\n" +
-        "Real payment/order system is not active yet."
-    );
-
+.stat span{
+    color:#88a99d;
 }
 
-</script>
+/* ===== LABS ===== */
 
+.labs{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
 
-</body>
+.lab{
+    background:#06100d;
+    border:1px solid #164534;
+    border-radius:12px;
+    padding:22px;
+    transition:.2s;
+}
 
-</html>
+.lab:hover{
+    transform:translateY(-4px);
+    border-color:#00ff9c;
+    box-shadow:0 0 20px rgba(0,255,156,.1);
+}
+
+.lab-icon{
+    font-size:35px;
+}
+
+.lab h3{
+    color:#fff;
+}
+
+.lab p{
+    color:#829f94;
+    line-height:1.6;
+}
+
+.level{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:5px;
+    font-size:11px;
+    background:#10271f;
+    color:#00ff9c;
+}
+
+.lab button{
+    margin-top:15px;
+    padding:10px 15px;
+    border:1px solid #00ff9c;
+    background:transparent;
+    color:#00ff9c;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* ===== TERMINAL ===== */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:1.5fr 1
