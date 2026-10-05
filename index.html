@@ -776,6 +776,117 @@ function mmAnswer(correct){
         result.style.color="#ff7777";
     }
 }
+<script>
+
+function lab(name){
+
+    document.getElementById("mmLabBox")?.remove();
+
+    document.body.insertAdjacentHTML("beforeend", `
+
+    <div id="mmLabBox">
+
+        <div class="mmLab">
+
+            <button onclick="document.getElementById('mmLabBox').remove()">
+                ✕
+            </button>
+
+            <h2>🧪 ${name}</h2>
+
+            <p>
+                MAD MAX सुरक्षित Cybersecurity Practice Lab
+            </p>
+
+            <div class="labTerminal">
+                <div>&gt; Initializing lab...</div>
+                <div>&gt; Environment: SAFE SIMULATION</div>
+                <div>&gt; Status: READY</div>
+            </div>
+
+            <h3>🎯 Mission</h3>
+
+            <p>
+                इस lab में cybersecurity का basic concept सीखना है।
+                यह केवल educational simulation है।
+            </p>
+
+            <button class="startMission"
+            onclick="alert('🎉 Mission Started!\\n\\n+50 XP earned!')">
+                ▶ START MISSION
+            </button>
+
+        </div>
+
+    </div>
+
+    `);
+
+}
+
 </script>
+
+<style>
+
+#mmLabBox{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    background:rgba(0,0,0,.85);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.mmLab{
+    width:100%;
+    max-width:600px;
+    background:#06100d;
+    border:1px solid #00ff9c;
+    border-radius:14px;
+    padding:25px;
+    color:#d8fff1;
+    box-shadow:0 0 35px #00ff9c33;
+}
+
+.mmLab h2{
+    color:#00ff9c;
+}
+
+.mmLab p{
+    color:#9bb8ad;
+    line-height:1.6;
+}
+
+.mmLab>button{
+    float:right;
+    background:none;
+    border:0;
+    color:#ff6666;
+    font-size:25px;
+}
+
+.labTerminal{
+    background:#010403;
+    border:1px solid #164534;
+    padding:18px;
+    color:#00ff9c;
+    font-family:monospace;
+    line-height:1.8;
+    border-radius:8px;
+}
+
+.startMission{
+    width:100%;
+    padding:13px;
+    margin-top:10px;
+    background:#00d985;
+    border:0;
+    border-radius:7px;
+    font-weight:bold;
+}
+
+</style>
 </body>
               </html>
