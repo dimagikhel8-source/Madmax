@@ -2912,7 +2912,146 @@ function mmInstaEscape(text){
 
 })();
 </script>
+<!-- ================= MAD MAX CYBER COMMAND CENTER ================= -->
 
+<style>
+.mm-command{
+    width:94%;
+    max-width:1100px;
+    margin:70px auto;
+    padding:2px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#00ff9c,#06251a,#00aaff);
+    box-shadow:0 0 50px #00ff9c22;
+    font-family:monospace;
+}
+
+.mm-command-inner{
+    position:relative;
+    overflow:hidden;
+    border-radius:16px;
+    padding:22px;
+    background:#020604;
+    color:#00ff9c;
+}
+
+/* MATRIX BACKGROUND */
+
+.mm-matrix{
+    position:absolute;
+    inset:0;
+    opacity:.08;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        #00ff9c 0 1px,
+        transparent 1px 45px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        #00ff9c 0 1px,
+        transparent 1px 45px
+      );
+    animation:mmGridMove 8s linear infinite;
+}
+
+@keyframes mmGridMove{
+    from{transform:translateY(0)}
+    to{transform:translateY(45px)}
+}
+
+.mm-command-content{
+    position:relative;
+    z-index:2;
+}
+
+.mm-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #164332;
+    padding-bottom:15px;
+    margin-bottom:20px;
+}
+
+.mm-logo{
+    font-size:20px;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+.mm-live{
+    color:#00ff9c;
+    font-size:11px;
+}
+
+.mm-live span{
+    display:inline-block;
+    width:7px;
+    height:7px;
+    background:#00ff9c;
+    border-radius:50%;
+    box-shadow:0 0 10px #00ff9c;
+    animation:mmBlink 1s infinite;
+}
+
+@keyframes mmBlink{
+    50%{opacity:.2}
+}
+
+.mm-title{
+    font-size:28px;
+    color:white;
+    margin:10px 0 5px;
+}
+
+.mm-sub{
+    color:#6c9182;
+    font-size:12px;
+    margin-bottom:22px;
+}
+
+/* STATS */
+
+.mm-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.mm-stat{
+    padding:14px;
+    background:#06100c;
+    border:1px solid #164332;
+    border-radius:9px;
+}
+
+.mm-stat small{
+    display:block;
+    color:#668478;
+    font-size:10px;
+}
+
+.mm-stat b{
+    display:block;
+    margin-top:7px;
+    font-size:20px;
+}
+
+/* TERMINAL */
+
+.mm-terminal{
+    margin-top:18px;
+    padding:16px;
+    min-height:180px;
+    background:#010302;
+    border:1px solid #174b36;
+    border-radius:10px;
+    box-shadow:inset 0 0 25px #00ff9c08;
+    color:#6dffc3;
+    font-size:12px;
+    line-height:1.9;
+    overflow:hidden
 <!-- ================= END CYBER VISION ================= -->
 </body>
 </html>
