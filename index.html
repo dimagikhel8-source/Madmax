@@ -2166,6 +2166,341 @@ function escapeHTML(text){
 })();
 </script>
 
-<!-- ================= END SCANNER ================= -->
+<!-- ================= INSTA SECURITY LAB ================= -->
+
+<style>
+.mm-insta-lab{
+    width:92%;
+    max-width:650px;
+    margin:55px auto;
+    padding:25px;
+    background:linear-gradient(145deg,#090d0b,#020403);
+    border:1px solid #00ff9c;
+    border-radius:18px;
+    color:#eafff5;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    box-shadow:0 0 30px #00ff9c25;
+}
+
+.mm-insta-title{
+    font-size:26px;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.mm-insta-sub{
+    color:#78968b;
+    font-size:12px;
+    letter-spacing:1px;
+    margin-bottom:22px;
+}
+
+.mm-insta-input{
+    width:100%;
+    padding:14px;
+    background:#010302;
+    border:1px solid #19543e;
+    border-radius:8px;
+    color:#00ff9c;
+    outline:none;
+    font-size:15px;
+    box-sizing:border-box;
+}
+
+.mm-insta-btn{
+    width:100%;
+    margin-top:12px;
+    padding:14px;
+    border:0;
+    border-radius:8px;
+    background:#00d985;
+    color:#00170e;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.mm-insta-scan{
+    display:none;
+    margin-top:25px;
+}
+
+.mm-insta-ring{
+    width:120px;
+    height:120px;
+    margin:auto;
+    border-radius:50%;
+    border:3px solid #15352a;
+    border-top-color:#00ff9c;
+    animation:mmInstaSpin 1s linear infinite;
+}
+
+@keyframes mmInstaSpin{
+    to{transform:rotate(360deg)}
+}
+
+.mm-insta-percent{
+    margin-top:15px;
+    color:#00ff9c;
+    font: bold 28px monospace;
+}
+
+.mm-insta-bar{
+    height:8px;
+    margin-top:14px;
+    background:#13231d;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.mm-insta-fill{
+    height:100%;
+    width:0%;
+    background:#00ff9c;
+    transition:.15s;
+}
+
+.mm-insta-log{
+    margin-top:18px;
+    padding:14px;
+    min-height:100px;
+    text-align:left;
+    background:#010302;
+    border:1px solid #123d2d;
+    border-radius:8px;
+    color:#00ff9c;
+    font:12px monospace;
+    line-height:1.8;
+}
+
+.mm-insta-result{
+    display:none;
+    margin-top:22px;
+    padding:20px;
+    border:1px solid #00ff9c;
+    border-radius:12px;
+    background:#020806;
+}
+
+.mm-insta-status{
+    color:#00ff9c;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.mm-insta-safe{
+    margin-top:15px;
+    color:#ffcc66;
+    font-size:12px;
+    line-height:1.7;
+}
+</style>
+
+<section class="mm-insta-lab">
+
+    <div class="mm-insta-title">
+        📸 INSTAGRAM SECURITY LAB
+    </div>
+
+    <div class="mm-insta-sub">
+        MAD MAX • LOCAL SECURITY SIMULATION
+    </div>
+
+    <input
+        id="mmInstaUser"
+        class="mm-insta-input"
+        type="text"
+        placeholder="Enter test username"
+        autocomplete="off"
+    >
+
+    <button
+        id="mmInstaButton"
+        class="mm-insta-btn"
+        onclick="mmInstaStart()"
+    >
+        🔍 START SECURITY SCAN
+    </button>
+
+    <div id="mmInstaScan" class="mm-insta-scan">
+
+        <div class="mm-insta-ring"></div>
+
+        <div id="mmInstaPercent" class="mm-insta-percent">
+            0%
+        </div>
+
+        <div class="mm-insta-bar">
+            <div id="mmInstaFill" class="mm-insta-fill"></div>
+        </div>
+
+        <div id="mmInstaLog" class="mm-insta-log">
+            &gt; Initializing security lab...
+        </div>
+
+    </div>
+
+    <div id="mmInstaResult" class="mm-insta-result">
+
+        <div class="mm-insta-status">
+            ✓ SECURITY CHECK COMPLETE
+        </div>
+
+        <p id="mmInstaTarget"></p>
+
+        <h3>🔐 Credential Status</h3>
+
+        <div style="font:22px monospace;color:#00ff9c;">
+            PROTECTED
+        </div>
+
+        <div class="mm-insta-safe">
+            ⚠ यह केवल local educational simulation है।<br>
+            किसी real Instagram account को access नहीं किया गया।<br>
+            कोई password collect या store नहीं किया गया।
+        </div>
+
+        <button
+            class="mm-insta-btn"
+            onclick="mmInstaReset()"
+        >
+            ↻ SCAN AGAIN
+        </button>
+
+    </div>
+
+</section>
+
+<script>
+function mmInstaStart(){
+
+    var user =
+        document.getElementById("mmInstaUser").value.trim();
+
+    if(user === ""){
+        alert("Test username enter karo 😎");
+        return;
+    }
+
+    var scan =
+        document.getElementById("mmInstaScan");
+
+    var result =
+        document.getElementById("mmInstaResult");
+
+    var fill =
+        document.getElementById("mmInstaFill");
+
+    var percent =
+        document.getElementById("mmInstaPercent");
+
+    var log =
+        document.getElementById("mmInstaLog");
+
+    var button =
+        document.getElementById("mmInstaButton");
+
+    scan.style.display = "block";
+    result.style.display = "none";
+
+    button.disabled = true;
+    button.innerText = "⏳ SCANNING...";
+
+    fill.style.width = "0%";
+    percent.innerText = "0%";
+
+    var messages = [
+        "Initializing security engine...",
+        "Checking username format...",
+        "Analyzing public information...",
+        "Checking security indicators...",
+        "Testing rate-limit protection...",
+        "Checking credential protection...",
+        "Private credentials remain protected...",
+        "Generating security report..."
+    ];
+
+    var progress = 0;
+
+    var timer = setInterval(function(){
+
+        progress++;
+
+        fill.style.width = progress + "%";
+        percent.innerText = progress + "%";
+
+        var index =
+            Math.floor(progress / 13);
+
+        if(index >= messages.length){
+            index = messages.length - 1;
+        }
+
+        log.innerHTML =
+            "&gt; " + messages[index] +
+            "<br>&gt; SYSTEM STATUS: " +
+            progress + "%";
+
+        if(progress >= 100){
+
+            clearInterval(timer);
+
+            setTimeout(function(){
+
+                scan.style.display = "none";
+                result.style.display = "block";
+
+                document.getElementById(
+                    "mmInstaTarget"
+                ).innerHTML =
+                    "Test username: <b>" +
+                    mmInstaEscape(user) +
+                    "</b>";
+
+                button.disabled = false;
+                button.innerText =
+                    "🔍 START SECURITY SCAN";
+
+            },700);
+        }
+
+    },100);
+
+}
+
+function mmInstaReset(){
+
+    document.getElementById(
+        "mmInstaResult"
+    ).style.display = "none";
+
+    document.getElementById(
+        "mmInstaScan"
+    ).style.display = "none";
+
+    document.getElementById(
+        "mmInstaUser"
+    ).value = "";
+
+    document.getElementById(
+        "mmInstaFill"
+    ).style.width = "0%";
+
+    document.getElementById(
+        "mmInstaPercent"
+    ).innerText = "0%";
+}
+
+function mmInstaEscape(text){
+
+    var div = document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+}
+</script>
+
+<!-- ================= END INSTA SECURITY LAB ================= -->
 </body>
 </html>
