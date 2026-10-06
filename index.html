@@ -1184,6 +1184,204 @@ function runCommand(){
 
 </script>
 
+<!-- ================= INSTAGRAM PRANK ================= -->
 
+<style>
+.mm-prank{
+    width:90%;
+    max-width:700px;
+    margin:50px auto;
+    padding:25px;
+    background:#06100d;
+    border:1px solid #00ff9c;
+    border-radius:15px;
+    box-shadow:0 0 25px #00ff9c22;
+    color:#d8fff1;
+    text-align:center;
+}
+
+.mm-prank h2{
+    color:#00ff9c;
+    margin-top:0;
+}
+
+.mm-prank p{
+    color:#8faea2;
+}
+
+.mm-prank input{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    background:#020403;
+    border:1px solid #164635;
+    border-radius:7px;
+    color:#00ff9c;
+    font-size:16px;
+    outline:none;
+}
+
+.mm-prank button{
+    width:100%;
+    margin-top:12px;
+    padding:14px;
+    background:#00d985;
+    border:0;
+    border-radius:7px;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+}
+
+#prankStatus{
+    margin-top:20px;
+    padding:15px;
+    background:#020403;
+    border-radius:8px;
+    color:#00ff9c;
+    font-family:monospace;
+    text-align:left;
+    display:none;
+    line-height:1.8;
+}
+
+#prankResult{
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    border:1px solid #00ff9c;
+    border-radius:10px;
+}
+
+.fakePass{
+    font-size:22px;
+    color:#00ff9c;
+    font-family:monospace;
+    margin:15px 0;
+}
+
+.prankNote{
+    color:#ffcc66;
+    font-size:13px;
+}
+</style>
+
+<section class="mm-prank">
+
+    <h2>📸 Instagram Prank Scanner</h2>
+
+    <p>
+        Enter a username and start the security scan 😎
+    </p>
+
+    <input
+        id="prankUsername"
+        type="text"
+        placeholder="@friend_username"
+        autocomplete="off"
+    >
+
+    <button onclick="startPrank()">
+        🔍 START SECURITY SCAN
+    </button>
+
+    <div id="prankStatus"></div>
+
+    <div id="prankResult">
+
+        <h2>🎯 SCAN COMPLETE</h2>
+
+        <p id="prankUser"></p>
+
+        <p>🔐 Password Found:</p>
+
+        <div class="fakePass">
+            ************
+        </div>
+
+        <h2>😂 PRANK!</h2>
+
+        <p>
+            Bro, password mila hi nahi! 😎
+        </p>
+
+        <p class="prankNote">
+            This is only a harmless educational prank.
+            No Instagram account or password was accessed.
+        </p>
+
+    </div>
+
+</section>
+
+<script>
+
+function startPrank(){
+
+    var username =
+        document.getElementById("prankUsername").value.trim();
+
+    var status =
+        document.getElementById("prankStatus");
+
+    var result =
+        document.getElementById("prankResult");
+
+    if(username === ""){
+
+        alert("Pehle username likho 😄");
+        return;
+
+    }
+
+    result.style.display = "none";
+    status.style.display = "block";
+
+    var steps = [
+        "> Connecting to safe simulator...",
+        "> Checking username...",
+        "> Analyzing public profile...",
+        "> Running security simulation...",
+        "> Searching encrypted database...",
+        "> 67% complete...",
+        "> 89% complete...",
+        "> 100% complete...",
+        "> Scan finished!"
+    ];
+
+    var i = 0;
+
+    status.innerHTML = "";
+
+    var timer = setInterval(function(){
+
+        status.innerHTML +=
+            steps[i] + "<br>";
+
+        i++;
+
+        if(i >= steps.length){
+
+            clearInterval(timer);
+
+            setTimeout(function(){
+
+                document.getElementById("prankUser").innerHTML =
+                    "Username: <b>@" +
+                    username.replace(/^@/,"") +
+                    "</b>";
+
+                result.style.display = "block";
+
+            },700);
+        }
+
+    },600);
+
+}
+
+</script>
+
+<!-- ================= END INSTAGRAM PRANK ================= -->
 </body>
 </html>
