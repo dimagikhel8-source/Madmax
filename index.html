@@ -1725,6 +1725,448 @@ function escapeHTML(text){
 </script>
 
 <!-- ================= END MAD MAX SCANNER ================= -->
-<!-- ================= END INSTAGRAM PRANK =================
+<!-- ================= MAD MAX 10 SECOND SCANNER ================= -->
+
+<style>
+.mm10{
+    width:92%;
+    max-width:760px;
+    margin:55px auto;
+    padding:28px;
+    box-sizing:border-box;
+    background:linear-gradient(145deg,#06130e,#010403);
+    border:1px solid #00ff9c;
+    border-radius:20px;
+    color:#dffff2;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    box-shadow:0 0 35px #00ff9c25;
+}
+
+.mm10-logo{
+    color:#00ff9c;
+    font-size:12px;
+    letter-spacing:4px;
+    margin-bottom:10px;
+}
+
+.mm10 h2{
+    margin:5px 0;
+    color:white;
+}
+
+.mm10-sub{
+    color:#76958a;
+    font-size:13px;
+    margin-bottom:22px;
+}
+
+.mm10 input{
+    width:100%;
+    box-sizing:border-box;
+    padding:15px;
+    background:#020504;
+    color:#00ff9c;
+    border:1px solid #17553e;
+    border-radius:9px;
+    outline:none;
+    font-size:16px;
+}
+
+.mm10 button{
+    width:100%;
+    padding:15px;
+    margin-top:12px;
+    border:0;
+    border-radius:9px;
+    background:#00d985;
+    color:#00180f;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.mm10-scanning{
+    display:none;
+    margin-top:25px;
+}
+
+.mm10-ring{
+    width:145px;
+    height:145px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    border:2px solid #00ff9c;
+    position:relative;
+    box-shadow:0 0 25px #00ff9c35;
+    animation:mm10pulse 1.2s infinite;
+}
+
+.mm10-ring:after{
+    content:"";
+    position:absolute;
+    width:50%;
+    height:2px;
+    background:#00ff9c;
+    left:50%;
+    top:50%;
+    transform-origin:left center;
+    animation:mm10rotate 1s linear infinite;
+    box-shadow:0 0 12px #00ff9c;
+}
+
+@keyframes mm10rotate{
+    to{transform:rotate(360deg)}
+}
+
+@keyframes mm10pulse{
+    50%{
+        box-shadow:0 0 45px #00ff9c55;
+    }
+}
+
+.mm10-percent{
+    font-size:30px;
+    color:#00ff9c;
+    font-family:monospace;
+    font-weight:bold;
+}
+
+.mm10-progress{
+    height:9px;
+    margin-top:15px;
+    background:#10221b;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.mm10-fill{
+    height:100%;
+    width:0%;
+    background:#00ff9c;
+    box-shadow:0 0 15px #00ff9c;
+    transition:width .2s linear;
+}
+
+.mm10-log{
+    margin-top:18px;
+    padding:15px;
+    background:#010302;
+    border:1px solid #123c2d;
+    border-radius:9px;
+    text-align:left;
+    min-height:105px;
+    font-family:monospace;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.mm10-result{
+    display:none;
+    margin-top:25px;
+    padding:22px;
+    background:#020806;
+    border:1px solid #00ff9c;
+    border-radius:13px;
+}
+
+.mm10-password{
+    margin:16px 0;
+    font-family:monospace;
+    font-size:25px;
+    letter-spacing:5px;
+    color:#00ff9c;
+}
+
+.mm10-prank{
+    color:#ffcc66;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.mm10-note{
+    color:#718f82;
+    font-size:12px;
+    margin-top:12px;
+}
+</style>
+
+
+<section class="mm10">
+
+    <div class="mm10-logo">
+        MAD MAX • SECURITY LAB
+    </div>
+
+    <h2>⚡ ADVANCED ACCOUNT SCANNER</h2>
+
+    <div class="mm10-sub">
+        Secure username analysis simulation
+    </div>
+
+    <input
+        id="mm10User"
+        type="text"
+        placeholder="@username"
+        autocomplete="off"
+    >
+
+    <button id="mm10Start">
+        🔍 START DEEP SCAN
+    </button>
+
+
+    <div id="mm10Scanning" class="mm10-scanning">
+
+        <div class="mm10-ring"></div>
+
+        <div id="mm10Percent" class="mm10-percent">
+            0%
+        </div>
+
+        <div class="mm10-progress">
+            <div id="mm10Fill" class="mm10-fill"></div>
+        </div>
+
+        <div id="mm10Log" class="mm10-log">
+            Waiting for scan...
+        </div>
+
+    </div>
+
+
+    <div id="mm10Result" class="mm10-result">
+
+        <div style="color:#00ff9c;letter-spacing:2px;">
+            ✓ SCAN COMPLETE
+        </div>
+
+        <h2>🔐 SECURITY REPORT</h2>
+
+        <p id="mm10Target"></p>
+
+        <p>Password Status</p>
+
+        <div class="mm10-password">
+            ************
+        </div>
+
+        <div class="mm10-prank">
+            😂 PRANK COMPLETE!
+        </div>
+
+        <p>
+            No real password was accessed.
+        </p>
+
+        <div class="mm10-note">
+            This is a harmless security-awareness simulation.
+        </div>
+
+        <button onclick="mm10Reset()">
+            ↻ SCAN AGAIN
+        </button>
+
+    </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+    var start =
+        document.getElementById("mm10Start");
+
+    start.addEventListener("click", function(){
+
+        var username =
+            document.getElementById("mm10User")
+            .value.trim();
+
+        if(username === ""){
+
+            alert("Username enter karo 😎");
+            return;
+
+        }
+
+        var scanning =
+            document.getElementById("mm10Scanning");
+
+        var result =
+            document.getElementById("mm10Result");
+
+        var fill =
+            document.getElementById("mm10Fill");
+
+        var percent =
+            document.getElementById("mm10Percent");
+
+        var log =
+            document.getElementById("mm10Log");
+
+        scanning.style.display = "block";
+        result.style.display = "none";
+
+        start.disabled = true;
+        start.innerText = "⏳ SCANNING...";
+
+        fill.style.width = "0%";
+        percent.innerText = "0%";
+
+        log.innerHTML =
+            "> Initializing secure engine...<br>";
+
+        var logs = [
+
+            "✓ Scanner engine online",
+
+            "✓ Username structure verified",
+
+            "✓ Running profile analysis...",
+
+            "✓ Checking public information...",
+
+            "✓ Analyzing security indicators...",
+
+            "✓ Checking encryption layer...",
+
+            "⚠ Private credentials protected",
+
+            "✓ Final security verification...",
+
+            "✓ Analysis complete"
+
+        ];
+
+        var startTime = Date.now();
+
+        var timer = setInterval(function(){
+
+            var elapsed =
+                Date.now() - startTime;
+
+            var progress =
+                Math.min(
+                    100,
+                    Math.floor(
+                        elapsed / 10000 * 100
+                    )
+                );
+
+            fill.style.width =
+                progress + "%";
+
+            percent.innerText =
+                progress + "%";
+
+            var index =
+                Math.min(
+                    logs.length - 1,
+                    Math.floor(
+                        progress /
+                        (100 / logs.length)
+                    )
+                );
+
+            log.innerHTML =
+                "> " +
+                logs[index] +
+                "<br>" +
+                "> SYSTEM STATUS: " +
+                progress +
+                "%";
+
+            if(elapsed >= 10000){
+
+                clearInterval(timer);
+
+                fill.style.width = "100%";
+                percent.innerText = "100%";
+
+                log.innerHTML =
+                    "> ✓ SCAN FINISHED<br>" +
+                    "> ✓ SECURITY ANALYSIS COMPLETE";
+
+                setTimeout(function(){
+
+                    scanning.style.display =
+                        "none";
+
+                    result.style.display =
+                        "block";
+
+                    document.getElementById(
+                        "mm10Target"
+                    ).innerHTML =
+                        "Target Username: <b>" +
+                        escapeHTML(username) +
+                        "</b>";
+
+                    start.disabled = false;
+                    start.innerText =
+                        "🔍 START DEEP SCAN";
+
+                },700);
+
+            }
+
+        },100);
+
+
+    });
+
+
+    window.mm10Reset = function(){
+
+        document.getElementById(
+            "mm10Result"
+        ).style.display = "none";
+
+        document.getElementById(
+            "mm10Scanning"
+        ).style.display = "none";
+
+        document.getElementById(
+            "mm10User"
+        ).value = "";
+
+        document.getElementById(
+            "mm10Fill"
+        ).style.width = "0%";
+
+        document.getElementById(
+            "mm10Percent"
+        ).innerText = "0%";
+
+        document.getElementById(
+            "mm10Start"
+        ).disabled = false;
+
+        document.getElementById(
+            "mm10Start"
+        ).innerText =
+            "🔍 START DEEP SCAN";
+
+    };
+
+
+    function escapeHTML(text){
+
+        var div =
+            document.createElement("div");
+
+        div.textContent = text;
+
+        return div.innerHTML;
+
+    }
+
+})();
+</script>
+
+<!-- ================= END SCANNER ================= -->
 </body>
 </html>
