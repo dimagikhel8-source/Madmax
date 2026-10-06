@@ -915,14 +915,127 @@ function closeLab(){
 
 }
 
-
 function startMission(){
-
-    document.getElementById("missionResult").innerText =
-    "🎉 MISSION STARTED! +50 XP";
 
     addXP();
 
+    document.getElementById("missionResult").innerHTML = `
+    
+    <div style="
+        margin-top:20px;
+        padding:20px;
+        background:#020403;
+        border:1px solid #00ff9c;
+        border-radius:10px;
+        text-align:left;
+        font-family:monospace;
+    ">
+
+        <div style="color:#00ff9c;font-size:20px;">
+            🎯 MISSION 01: PASSWORD SECURITY
+        </div>
+
+        <br>
+
+        <div style="color:#d8fff1;">
+            > Mission loaded...<br>
+            > Training mode: ACTIVE<br>
+            > Difficulty: BEGINNER
+        </div>
+
+        <br>
+
+        <div style="color:#00ff9c;font-family:Arial;">
+            <b>QUESTION:</b>
+        </div>
+
+        <p style="font-family:Arial;color:#d8fff1;">
+            इनमें से कौन सा password ज्यादा सुरक्षित है?
+        </p>
+
+        <button
+            onclick="missionAnswer(false)"
+            style="
+                width:100%;
+                padding:12px;
+                margin-top:8px;
+                background:#08120e;
+                border:1px solid #00ff9c;
+                color:#00ff9c;
+                border-radius:6px;
+            "
+        >
+            12345678
+        </button>
+
+        <button
+            onclick="missionAnswer(true)"
+            style="
+                width:100%;
+                padding:12px;
+                margin-top:8px;
+                background:#08120e;
+                border:1px solid #00ff9c;
+                color:#00ff9c;
+                border-radius:6px;
+            "
+        >
+            Blue!River#47Moon
+        </button>
+
+        <button
+            onclick="missionAnswer(false)"
+            style="
+                width:100%;
+                padding:12px;
+                margin-top:8px;
+                background:#08120e;
+                border:1px solid #00ff9c;
+                color:#00ff9c;
+                border-radius:6px;
+            "
+        >
+            password123
+        </button>
+
+        <div id="answerResult"
+             style="
+                margin-top:15px;
+                font-family:Arial;
+                font-weight:bold;
+             ">
+        </div>
+
+    </div>
+    `;
+}
+
+function missionAnswer(correct){
+
+    var result =
+    document.getElementById("answerResult");
+
+    if(correct){
+
+        result.innerHTML =
+        "✅ CORRECT! Strong password identified. +50 XP";
+
+        result.style.color =
+        "#00ff9c";
+
+        addXP();
+
+    }else{
+
+        result.innerHTML =
+        "❌ WRONG! Try again. A secure password should be difficult to guess.";
+
+        result.style.color =
+        "#ff6666";
+
+    }
+
+    }
 }
 
 
