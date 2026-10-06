@@ -1381,7 +1381,350 @@ function startPrank(){
 }
 
 </script>
+<!-- ================= MAD MAX PASSWORD SCANNER ================= -->
 
-<!-- ================= END INSTAGRAM PRANK ================= -->
+<style>
+.mm-scanner{
+    width:92%;
+    max-width:760px;
+    margin:55px auto;
+    padding:28px;
+    background:
+      radial-gradient(circle at top,#0b3023 0%,#030806 45%,#010202 100%);
+    border:1px solid #00ff9c;
+    border-radius:18px;
+    color:#d8fff0;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    box-shadow:0 0 35px #00ff9c25;
+    overflow:hidden;
+    position:relative;
+}
+
+.mm-scanner:before{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    height:2px;
+    background:#00ff9c;
+    box-shadow:0 0 20px #00ff9c;
+    animation:mmline 2s linear infinite;
+}
+
+@keyframes mmline{
+    0%{transform:translateX(-100%)}
+    100%{transform:translateX(100%)}
+}
+
+.mm-logo{
+    font-size:13px;
+    letter-spacing:4px;
+    color:#00ff9c;
+    margin-bottom:12px;
+}
+
+.mm-scanner h2{
+    margin:5px 0;
+    color:#fff;
+    font-size:28px;
+}
+
+.mm-sub{
+    color:#72988a;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.mm-input{
+    width:100%;
+    box-sizing:border-box;
+    padding:15px;
+    background:#020403;
+    border:1px solid #15583f;
+    border-radius:9px;
+    color:#00ff9c;
+    font-size:16px;
+    outline:none;
+}
+
+.mm-btn{
+    width:100%;
+    margin-top:13px;
+    padding:15px;
+    border:0;
+    border-radius:9px;
+    background:#00d985;
+    color:#001b11;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.mm-btn:hover{
+    box-shadow:0 0 20px #00ff9c66;
+}
+
+.mm-radar{
+    width:170px;
+    height:170px;
+    margin:25px auto;
+    border:1px solid #00ff9c;
+    border-radius:50%;
+    position:relative;
+    display:none;
+    background:
+      radial-gradient(circle,#00ff9c12 2px,transparent 3px);
+    box-shadow:0 0 25px #00ff9c22;
+}
+
+.mm-radar:after{
+    content:"";
+    position:absolute;
+    width:50%;
+    height:2px;
+    background:#00ff9c;
+    top:50%;
+    left:50%;
+    transform-origin:left;
+    animation:radar 1.5s linear infinite;
+    box-shadow:0 0 10px #00ff9c;
+}
+
+@keyframes radar{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+}
+
+.mm-status{
+    display:none;
+    text-align:left;
+    background:#010302;
+    border:1px solid #123c2d;
+    border-radius:10px;
+    padding:16px;
+    margin-top:15px;
+    font-family:monospace;
+    font-size:13px;
+    line-height:1.9;
+    min-height:130px;
+}
+
+.mm-progress{
+    height:9px;
+    background:#10231c;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:15px;
+}
+
+.mm-fill{
+    width:0%;
+    height:100%;
+    background:#00ff9c;
+    box-shadow:0 0 12px #00ff9c;
+    transition:width .3s;
+}
+
+.mm-result{
+    display:none;
+    margin-top:20px;
+    padding:22px;
+    border:1px solid #00ff9c;
+    border-radius:12px;
+    background:#020806;
+}
+
+.mm-pass{
+    margin:16px 0;
+    font-family:monospace;
+    font-size:25px;
+    letter-spacing:5px;
+    color:#00ff9c;
+    text-shadow:0 0 12px #00ff9c;
+}
+
+.mm-prank{
+    color:#ffcc66;
+    font-weight:bold;
+}
+
+.mm-safe{
+    color:#718e82;
+    font-size:12px;
+    margin-top:15px;
+}
+</style>
+
+<section class="mm-scanner">
+
+    <div class="mm-logo">MAD MAX • SECURITY LAB</div>
+
+    <h2>⚡ ACCOUNT SECURITY SCANNER</h2>
+
+    <div class="mm-sub">
+        Advanced username analysis simulator
+    </div>
+
+    <input
+        id="mmUser"
+        class="mm-input"
+        type="text"
+        placeholder="@username"
+        autocomplete="off"
+    >
+
+    <button class="mm-btn" onclick="mmStartScan()">
+        🔍 INITIALIZE SCAN
+    </button>
+
+    <div id="mmRadar" class="mm-radar"></div>
+
+    <div id="mmStatus" class="mm-status"></div>
+
+    <div class="mm-progress">
+        <div id="mmFill" class="mm-fill"></div>
+    </div>
+
+    <div id="mmResult" class="mm-result">
+
+        <div style="color:#00ff9c;font-size:13px;letter-spacing:2px;">
+            ✓ ANALYSIS COMPLETE
+        </div>
+
+        <h2>🔐 SECURITY REPORT</h2>
+
+        <p id="mmUserResult"></p>
+
+        <p>Password Status:</p>
+
+        <div class="mm-pass">************</div>
+
+        <div class="mm-prank">
+            😂 PRANK COMPLETE!
+        </div>
+
+        <p>
+            No real password was accessed.
+        </p>
+
+        <div class="mm-safe">
+            This is a harmless security-awareness simulation.
+        </div>
+
+        <button class="mm-btn" onclick="mmReset()">
+            ↻ RUN ANOTHER SCAN
+        </button>
+
+    </div>
+
+</section>
+
+<script>
+function mmStartScan(){
+
+    var user = document.getElementById("mmUser").value.trim();
+
+    if(!user){
+        alert("Enter a username first 😎");
+        return;
+    }
+
+    document.getElementById("mmResult").style.display="none";
+    document.getElementById("mmRadar").style.display="block";
+    document.getElementById("mmStatus").style.display="block";
+
+    var status=document.getElementById("mmStatus");
+    var fill=document.getElementById("mmFill");
+
+    status.innerHTML="";
+    fill.style.width="0%";
+
+    var logs=[
+        "[SYSTEM] Initializing secure scanner...",
+        "[OK] Scanner engine online",
+        "[SCAN] Analyzing username...",
+        "[SCAN] Checking public profile data...",
+        "[SCAN] Running security simulation...",
+        "[SCAN] Checking encryption status...",
+        "[WARN] Private credentials protected",
+        "[INFO] Password access blocked",
+        "[DONE] Security analysis completed"
+    ];
+
+    var i=0;
+    var progress=0;
+
+    var timer=setInterval(function(){
+
+        if(i < logs.length){
+
+            status.innerHTML +=
+                logs[i]+"<br>";
+
+            i++;
+        }
+
+        progress += 12.5;
+
+        if(progress>100) progress=100;
+
+        fill.style.width=progress+"%";
+
+        if(i>=logs.length){
+
+            clearInterval(timer);
+
+            setTimeout(function(){
+
+                document.getElementById("mmRadar")
+                    .style.display="none";
+
+                document.getElementById("mmUserResult")
+                    .innerHTML=
+                    "Target Username: <b>"+
+                    escapeHTML(user)+
+                    "</b>";
+
+                document.getElementById("mmResult")
+                    .style.display="block";
+
+            },900);
+        }
+
+    },650);
+}
+
+
+function mmReset(){
+
+    document.getElementById("mmResult")
+        .style.display="none";
+
+    document.getElementById("mmStatus")
+        .style.display="none";
+
+    document.getElementById("mmRadar")
+        .style.display="none";
+
+    document.getElementById("mmFill")
+        .style.width="0%";
+
+    document.getElementById("mmUser").value="";
+}
+
+
+function escapeHTML(text){
+
+    var div=document.createElement("div");
+    div.textContent=text;
+    return div.innerHTML;
+
+}
+</script>
+
+<!-- ================= END MAD MAX SCANNER ================= -->
+<!-- ================= END INSTAGRAM PRANK =================
 </body>
 </html>
