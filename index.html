@@ -3052,6 +3052,939 @@ function mmInstaEscape(text){
     font-size:12px;
     line-height:1.9;
     overflow:hidden
-<!-- ================= END CYBER VISION ================= -->
+<!-- ================= MAD MAX CYBER COMMAND CENTER ================= -->
+
+<style>
+/* ===== MAIN COMMAND CENTER ===== */
+
+.mm-command{
+    width:94%;
+    max-width:1150px;
+    margin:55px auto;
+    padding:22px;
+    box-sizing:border-box;
+    background:
+        radial-gradient(circle at 20% 10%,#063c29 0%,transparent 30%),
+        radial-gradient(circle at 90% 80%,#073b2a 0%,transparent 30%),
+        #020706;
+    border:1px solid #00ff9c;
+    border-radius:18px;
+    color:#d9fff0;
+    font-family:Arial,sans-serif;
+    box-shadow:0 0 45px #00ff9c22;
+    overflow:hidden;
+}
+
+.mm-command *{
+    box-sizing:border-box;
+}
+
+.mm-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    padding-bottom:18px;
+    border-bottom:1px solid #124b38;
+}
+
+.mm-brand{
+    color:#00ff9c;
+    font-weight:bold;
+    letter-spacing:3px;
+    font-size:18px;
+}
+
+.mm-status{
+    color:#00ff9c;
+    font-size:12px;
+    font-family:monospace;
+}
+
+.mm-dot{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    background:#00ff9c;
+    border-radius:50%;
+    margin-right:6px;
+    box-shadow:0 0 12px #00ff9c;
+}
+
+/* ===== HERO ===== */
+
+.mm-hero{
+    min-height:310px;
+    margin-top:20px;
+    border-radius:15px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    padding:30px;
+    background:
+        linear-gradient(90deg,
+        #010403 10%,
+        #03140eaa 55%,
+        #010403 100%);
+    border:1px solid #123d2e;
+}
+
+.mm-code-bg{
+    position:absolute;
+    inset:0;
+    opacity:.13;
+    color:#00ff9c;
+    font-family:monospace;
+    font-size:12px;
+    line-height:1.5;
+    overflow:hidden;
+    word-break:break-all;
+}
+
+.mm-hero-content{
+    position:relative;
+    z-index:2;
+    max-width:600px;
+}
+
+.mm-small{
+    color:#00ff9c;
+    font-family:monospace;
+    letter-spacing:3px;
+    font-size:12px;
+}
+
+.mm-hero h1{
+    margin:10px 0;
+    font-size:clamp(34px,7vw,65px);
+    color:white;
+    text-shadow:0 0 20px #00ff9c55;
+}
+
+.mm-hero h1 span{
+    color:#00ff9c;
+}
+
+.mm-hero p{
+    color:#8ba99d;
+    line-height:1.6;
+}
+
+.mm-hero-btn{
+    display:inline-block;
+    margin-top:12px;
+    padding:13px 20px;
+    border:1px solid #00ff9c;
+    border-radius:8px;
+    background:#00ff9c12;
+    color:#00ff9c;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ===== HOODED HACKER ===== */
+
+.mm-hacker{
+    position:absolute;
+    right:30px;
+    bottom:-10px;
+    width:260px;
+    height:280px;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    opacity:.9;
+}
+
+.mm-head{
+    width:120px;
+    height:135px;
+    background:
+        radial-gradient(circle at 50% 45%,#102d22 0 25%,#020403 60%);
+    border-radius:55% 55% 45% 45%;
+    border:2px solid #075b3d;
+    position:relative;
+}
+
+.mm-hood{
+    position:absolute;
+    width:170px;
+    height:200px;
+    border-radius:50% 50% 20% 20%;
+    border:8px solid #0a1712;
+    top:-30px;
+    left:-25px;
+    z-index:-1;
+    box-shadow:0 0 25px #00ff9c22 inset;
+}
+
+.mm-eye{
+    position:absolute;
+    top:61px;
+    width:27px;
+    height:4px;
+    background:#00ff9c;
+    box-shadow:0 0 15px #00ff9c;
+}
+
+.mm-eye.one{left:27px}
+.mm-eye.two{right:27px}
+
+.mm-body{
+    position:absolute;
+    bottom:0;
+    width:230px;
+    height:120px;
+    background:#030706;
+    border:2px solid #0a3023;
+    border-radius:80px 80px 0 0;
+}
+
+/* ===== STATS ===== */
+
+.mm-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:18px;
+}
+
+.mm-stat{
+    padding:17px;
+    background:#030b08;
+    border:1px solid #123d2d;
+    border-radius:10px;
+}
+
+.mm-stat-title{
+    color:#66877a;
+    font-size:11px;
+}
+
+.mm-stat-value{
+    color:#00ff9c;
+    font-size:24px;
+    font-family:monospace;
+    margin-top:8px;
+}
+
+/* ===== GRID ===== */
+
+.mm-grid{
+    display:grid;
+    grid-template-columns:1.3fr .7fr;
+    gap:16px;
+    margin-top:18px;
+}
+
+/* ===== TERMINAL ===== */
+
+.mm-panel{
+    background:#020605;
+    border:1px solid #123d2d;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.mm-panel-head{
+    padding:12px 15px;
+    background:#06130e;
+    border-bottom:1px solid #123d2d;
+    color:#00ff9c;
+    font-family:monospace;
+    font-size:13px;
+}
+
+.mm-terminal{
+    height:260px;
+    padding:15px;
+    overflow:auto;
+    font-family:monospace;
+    font-size:13px;
+    line-height:1.8;
+    color:#82c5a9;
+}
+
+.mm-terminal .green{
+    color:#00ff9c;
+}
+
+.mm-terminal .yellow{
+    color:#ffcc66;
+}
+
+.mm-command-input{
+    display:flex;
+    border-top:1px solid #123d2d;
+}
+
+.mm-command-input span{
+    padding:12px;
+    color:#00ff9c;
+    font-family:monospace;
+}
+
+.mm-command-input input{
+    flex:1;
+    background:transparent;
+    border:0;
+    outline:0;
+    color:#00ff9c;
+    font-family:monospace;
+}
+
+/* ===== NETWORK ===== */
+
+.mm-network{
+    height:260px;
+    position:relative;
+    background:
+        linear-gradient(#00ff9c08 1px,transparent 1px),
+        linear-gradient(90deg,#00ff9c08 1px,transparent 1px);
+    background-size:35px 35px;
+    overflow:hidden;
+}
+
+.mm-node{
+    position:absolute;
+    width:18px;
+    height:18px;
+    border:2px solid #00ff9c;
+    border-radius:50%;
+    background:#02100a;
+    box-shadow:0 0 14px #00ff9c;
+    animation:mmblink 1.4s infinite;
+}
+
+.mm-node:after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:1px;
+    background:#00ff9c44;
+    left:15px;
+    top:7px;
+    transform:rotate(25deg);
+}
+
+.mm-n1{left:18%;top:25%}
+.mm-n2{left:48%;top:18%}
+.mm-n3{left:75%;top:35%}
+.mm-n4{left:35%;top:65%}
+.mm-n5{left:70%;top:72%}
+
+@keyframes mmblink{
+    50%{
+        box-shadow:0 0 30px #00ff9c;
+    }
+}
+
+/* ===== MISSIONS ===== */
+
+.mm-missions{
+    margin-top:18px;
+}
+
+.mm-mission-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    padding:15px;
+}
+
+.mm-mission{
+    padding:18px;
+    background:#030b08;
+    border:1px solid #124b38;
+    border-radius:10px;
+    transition:.2s;
+}
+
+.mm-mission:hover{
+    transform:translateY(-3px);
+    border-color:#00ff9c;
+    box-shadow:0 0 18px #00ff9c18;
+}
+
+.mm-mission-icon{
+    font-size:28px;
+}
+
+.mm-mission h3{
+    color:white;
+    font-size:16px;
+}
+
+.mm-mission p{
+    color:#718f82;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.mm-mission button{
+    width:100%;
+    padding:10px;
+    border:1px solid #00ff9c;
+    background:#00ff9c0d;
+    color:#00ff9c;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+/* ===== XP ===== */
+
+.mm-xp{
+    margin-top:18px;
+    padding:18px;
+    background:#030b08;
+    border:1px solid #123d2d;
+    border-radius:12px;
+}
+
+.mm-xp-top{
+    display:flex;
+    justify-content:space-between;
+    color:#00ff9c;
+    font-family:monospace;
+}
+
+.mm-xp-bar{
+    height:10px;
+    margin-top:12px;
+    background:#10221b;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.mm-xp-fill{
+    height:100%;
+    width:35%;
+    background:#00ff9c;
+    box-shadow:0 0 15px #00ff9c;
+    transition:.5s;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:800px){
+
+    .mm-hacker{
+        opacity:.25;
+        right:-30px;
+    }
+
+    .mm-grid{
+        grid-template-columns:1fr;
+    }
+
+    .mm-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .mm-mission-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .mm-command{
+        padding:12px;
+    }
+
+    .mm-hero{
+        padding:22px;
+        min-height:330px;
+    }
+
+    .mm-top{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .mm-stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+</style>
+
+
+<section class="mm-command">
+
+    <!-- TOP BAR -->
+
+    <div class="mm-top">
+
+        <div class="mm-brand">
+            ⚡ MAD MAX // CYBER LAB
+        </div>
+
+        <div class="mm-status">
+            <span class="mm-dot"></span>
+            SYSTEM ONLINE
+        </div>
+
+    </div>
+
+
+    <!-- HERO -->
+
+    <div class="mm-hero">
+
+        <div class="mm-code-bg">
+010101 110010 001101 101010 010101
+ACCESS CONTROL SYSTEM SECURITY NETWORK
+010010 101101 001010 110011 010101
+CYBER SECURITY LAB MAD MAX TERMINAL
+110010 010101 111000 001101 101010
+</div>
+
+        <div class="mm-hero-content">
+
+            <div class="mm-small">
+                CYBER SECURITY // TRAINING ENVIRONMENT
+            </div>
+
+            <h1>
+                ENTER THE<br>
+                <span>MAD MAX</span> LAB
+            </h1>
+
+            <p>
+                Learn cybersecurity through safe simulations,
+                terminal challenges and security missions.
+            </p>
+
+            <button
+                class="mm-hero-btn"
+                onclick="mmStartSimulation()">
+                ⚡ START SIMULATION
+            </button>
+
+        </div>
+
+
+        <div class="mm-hacker">
+
+            <div class="mm-body"></div>
+
+            <div class="mm-head">
+
+                <div class="mm-hood"></div>
+
+                <div class="mm-eye one"></div>
+                <div class="mm-eye two"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="mm-stats">
+
+        <div class="mm-stat">
+            <div class="mm-stat-title">
+                SECURITY STATUS
+            </div>
+            <div class="mm-stat-value">
+                SECURE
+            </div>
+        </div>
+
+        <div class="mm-stat">
+            <div class="mm-stat-title">
+                THREAT LEVEL
+            </div>
+            <div class="mm-stat-value">
+                LOW
+            </div>
+        </div>
+
+        <div class="mm-stat">
+            <div class="mm-stat-title">
+                ACTIVE NODES
+            </div>
+            <div class="mm-stat-value">
+                05
+            </div>
+        </div>
+
+        <div class="mm-stat">
+            <div class="mm-stat-title">
+                LAB STATUS
+            </div>
+            <div class="mm-stat-value">
+                ONLINE
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- TERMINAL + NETWORK -->
+
+    <div class="mm-grid">
+
+
+        <div class="mm-panel">
+
+            <div class="mm-panel-head">
+                ▣ LIVE TERMINAL
+            </div>
+
+            <div
+                id="mmTerminal"
+                class="mm-terminal">
+
+                <div class="green">
+                    MAD MAX TERMINAL v1.0
+                </div>
+
+                <div>
+                    Initializing safe environment...
+                </div>
+
+                <div>
+                    Loading security modules...
+                </div>
+
+                <div class="green">
+                    ✓ Sandbox ready
+                </div>
+
+                <div>
+                    Type <b>help</b> to view commands.
+                </div>
+
+            </div>
+
+            <div class="mm-command-input">
+
+                <span>madmax@lab:~$</span>
+
+                <input
+                    id="mmCmd"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="type help">
+
+            </div>
+
+        </div>
+
+
+        <div class="mm-panel">
+
+            <div class="mm-panel-head">
+                ◉ NETWORK MAP
+            </div>
+
+            <div class="mm-network">
+
+                <div class="mm-node mm-n1"></div>
+                <div class="mm-node mm-n2"></div>
+                <div class="mm-node mm-n3"></div>
+                <div class="mm-node mm-n4"></div>
+                <div class="mm-node mm-n5"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MISSIONS -->
+
+    <div class="mm-panel mm-missions">
+
+        <div class="mm-panel-head">
+            ⚔ CYBER MISSIONS
+        </div>
+
+        <div class="mm-mission-grid">
+
+
+            <div class="mm-mission">
+
+                <div class="mm-mission-icon">
+                    🔐
+                </div>
+
+                <h3>
+                    Password Security
+                </h3>
+
+                <p>
+                    Learn why strong passwords
+                    and secure authentication matter.
+                </p>
+
+                <button onclick="mmMission(50)">
+                    START MISSION +50 XP
+                </button>
+
+            </div>
+
+
+            <div class="mm-mission">
+
+                <div class="mm-mission-icon">
+                    🎣
+                </div>
+
+                <h3>
+                    Phishing Awareness
+                </h3>
+
+                <p>
+                    Identify suspicious messages
+                    and fake login pages safely.
+                </p>
+
+                <button onclick="mmMission(75)">
+                    START MISSION +75 XP
+                </button>
+
+            </div>
+
+
+            <div class="mm-mission">
+
+                <div class="mm-mission-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Network Defense
+                </h3>
+
+                <p>
+                    Practice detecting suspicious
+                    activity in a simulated network.
+                </p>
+
+                <button onclick="mmMission(100)">
+                    START MISSION +100 XP
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- XP -->
+
+    <div class="mm-xp">
+
+        <div class="mm-xp-top">
+
+            <span>
+                ⚡ CYBER XP
+            </span>
+
+            <span id="mmXPText">
+                350 / 1000 XP
+            </span>
+
+        </div>
+
+        <div class="mm-xp-bar">
+
+            <div
+                id="mmXPFill"
+                class="mm-xp-fill">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+(function(){
+
+    var xp = 350;
+
+    /* ===== TERMINAL ===== */
+
+    var cmd =
+        document.getElementById("mmCmd");
+
+    var terminal =
+        document.getElementById("mmTerminal");
+
+
+    if(cmd){
+
+        cmd.addEventListener("keydown",function(e){
+
+            if(e.key !== "Enter") return;
+
+            var value =
+                cmd.value.trim().toLowerCase();
+
+            if(value === ""){
+                return;
+            }
+
+            var line =
+                document.createElement("div");
+
+            line.innerHTML =
+                '<span class="green">$ ' +
+                mmSafe(value) +
+                '</span>';
+
+            terminal.appendChild(line);
+
+
+            var response =
+                document.createElement("div");
+
+
+            if(value === "help"){
+
+                response.innerHTML =
+                    "Available: help, status, scan, clear";
+
+            }
+
+            else if(value === "status"){
+
+                response.innerHTML =
+                    "SYSTEM: ONLINE<br>" +
+                    "THREAT: LOW<br>" +
+                    "SANDBOX: ACTIVE";
+
+            }
+
+            else if(value === "scan"){
+
+                response.innerHTML =
+                    "Safe simulation scan started...<br>" +
+                    "✓ No real systems contacted.";
+
+            }
+
+            else if(value === "clear"){
+
+                terminal.innerHTML =
+                    '<div class="green">' +
+                    'Terminal cleared.</div>';
+
+                cmd.value = "";
+                return;
+
+            }
+
+            else{
+
+                response.innerHTML =
+                    'Unknown command. Type <b>help</b>.';
+
+            }
+
+            terminal.appendChild(response);
+
+            terminal.scrollTop =
+                terminal.scrollHeight;
+
+            cmd.value = "";
+
+        });
+
+    }
+
+
+    /* ===== XP ===== */
+
+    window.mmMission = function(points){
+
+        xp += points;
+
+        if(xp > 1000){
+            xp = 1000;
+        }
+
+        document.getElementById(
+            "mmXPText"
+        ).innerText =
+            xp + " / 1000 XP";
+
+        document.getElementById(
+            "mmXPFill"
+        ).style.width =
+            (xp / 1000 * 100) + "%";
+
+
+        alert(
+            "MISSION COMPLETE! ⚡\n+" +
+            points +
+            " XP earned."
+        );
+
+    };
+
+
+    /* ===== START SIMULATION ===== */
+
+    window.mmStartSimulation = function(){
+
+        var terminal =
+            document.getElementById(
+                "mmTerminal"
+            );
+
+        terminal.innerHTML =
+            '<div class="green">' +
+            '> SIMULATION STARTED</div>' +
+
+            '<div>> Loading sandbox...</div>' +
+
+            '<div>> Checking security modules...</div>' +
+
+            '<div>> Running safe environment...</div>' +
+
+            '<div class="green">' +
+            '> ✓ READY</div>' +
+
+            '<div class="yellow">' +
+            '> This lab does not contact real accounts or systems.</div>';
+
+        terminal.scrollTop =
+            terminal.scrollHeight;
+
+    };
+
+
+    /* ===== SAFE TEXT ===== */
+
+    window.mmSafe = function(text){
+
+        var div =
+            document.createElement("div");
+
+        div.textContent = text;
+
+        return div.innerHTML;
+
+    };
+
+})();
+</script>
+
+<!-- ================= END MAD MAX COMMAND CENTER ================= -->
 </body>
 </html>
