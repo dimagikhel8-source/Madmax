@@ -4619,6 +4619,953 @@ CYBER SECURITY LAB MAD MAX TERMINAL
 })();
 </script>
 
-<!-- ================= END CYBER SNAKE ================= -->
+<!-- ================= MAD MAX : CYBER RAID ================= -->
+
+<style>
+.mmRaid{
+    width:94%;
+    max-width:900px;
+    margin:50px auto;
+    padding:18px;
+    background:#020604;
+    border:1px solid #00ff9c;
+    border-radius:18px;
+    color:#fff;
+    font-family:Arial,sans-serif;
+    box-shadow:0 0 35px #00ff9c25;
+}
+
+.mmRaidTitle{
+    text-align:center;
+    color:#00ff9c;
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+.mmRaidSub{
+    text-align:center;
+    color:#6f9182;
+    font-size:12px;
+    margin:5px 0 15px;
+}
+
+.mmRaidStats{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:10px;
+    font-family:monospace;
+    color:#00ff9c;
+}
+
+.mmRaidStat{
+    background:#06130e;
+    border:1px solid #164b37;
+    padding:8px 12px;
+    border-radius:7px;
+}
+
+#raidCanvas{
+    display:block;
+    width:100%;
+    max-width:760px;
+    aspect-ratio:16/10;
+    margin:auto;
+    background:#010302;
+    border:1px solid #164b37;
+    border-radius:12px;
+    touch-action:none;
+}
+
+.raidStart{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    border:0;
+    border-radius:8px;
+    background:#00d985;
+    color:#00180f;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.raidControls{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    max-width:330px;
+    margin:14px auto 0;
+    gap:8px;
+}
+
+.raidControls button{
+    min-height:50px;
+    border:1px solid #00ff9c;
+    border-radius:9px;
+    background:#06130e;
+    color:#00ff9c;
+    font-size:20px;
+    touch-action:none;
+}
+
+.raidControls button:active{
+    background:#00ff9c;
+    color:#00180f;
+}
+
+.raidFire{
+    max-width:330px;
+    width:100%;
+    display:block;
+    margin:8px auto 0;
+    padding:13px;
+    border:1px solid #00ff9c;
+    border-radius:8px;
+    background:#00ff9c12;
+    color:#00ff9c;
+    font-weight:bold;
+}
+
+#raidMessage{
+    text-align:center;
+    color:#78998b;
+    font-family:monospace;
+    min-height:20px;
+    margin-top:12px;
+}
+</style>
+
+
+<section class="mmRaid">
+
+    <div class="mmRaidTitle">
+        ⚡ MAD MAX: CYBER RAID
+    </div>
+
+    <div class="mmRaidSub">
+        DEFEND THE CYBER GRID
+    </div>
+
+    <div class="mmRaidStats">
+
+        <div class="mmRaidStat">
+            SCORE: <b id="raidScore">0</b>
+        </div>
+
+        <div class="mmRaidStat">
+            LEVEL: <b id="raidLevel">1</b>
+        </div>
+
+        <div class="mmRaidStat">
+            ❤️ <b id="raidLives">3</b>
+        </div>
+
+        <div class="mmRaidStat">
+            ⚡ <b id="raidEnergy">100</b>
+        </div>
+
+    </div>
+
+
+    <canvas
+        id="raidCanvas"
+        width="800"
+        height="500">
+    </canvas>
+
+
+    <button
+        id="raidStart"
+        class="raidStart"
+        type="button">
+        ▶ START CYBER RAID
+    </button>
+
+
+    <div class="raidControls">
+
+        <button
+            type="button"
+            data-move="left">
+            ◀
+        </button>
+
+        <button
+            type="button"
+            data-move="up">
+            ▲
+        </button>
+
+        <button
+            type="button"
+            data-move="right">
+            ▶
+        </button>
+
+        <button
+            type="button"
+            data-move="down">
+            ▼
+        </button>
+
+        <button
+            type="button"
+            data-move="stop">
+            ■
+        </button>
+
+    </div>
+
+
+    <button
+        id="raidFire"
+        class="raidFire"
+        type="button">
+        🔥 FIRE ENERGY SHOT
+    </button>
+
+
+    <div id="raidMessage">
+        START दबाकर Cyber Raid शुरू करो
+    </div>
+
+</section>
+
+
+<script>
+(function(){
+
+    const canvas =
+        document.getElementById("raidCanvas");
+
+    const ctx =
+        canvas.getContext("2d");
+
+    const start =
+        document.getElementById("raidStart");
+
+    const fire =
+        document.getElementById("raidFire");
+
+    const scoreEl =
+        document.getElementById("raidScore");
+
+    const levelEl =
+        document.getElementById("raidLevel");
+
+    const livesEl =
+        document.getElementById("raidLives");
+
+    const energyEl =
+        document.getElementById("raidEnergy");
+
+    const message =
+        document.getElementById("raidMessage");
+
+
+    let player;
+    let enemies = [];
+    let bullets = [];
+    let particles = [];
+
+    let score = 0;
+    let level = 1;
+    let lives = 3;
+    let energy = 100;
+
+    let running = false;
+    let animation = null;
+    let spawnTimer = null;
+
+    let keys = {
+        left:false,
+        right:false,
+        up:false,
+        down:false
+    };
+
+
+    function reset(){
+
+        player = {
+            x:400,
+            y:430,
+            w:34,
+            h:34,
+            speed:5
+        };
+
+        enemies = [];
+        bullets = [];
+        particles = [];
+
+        score = 0;
+        level = 1;
+        lives = 3;
+        energy = 100;
+
+        updateUI();
+
+        draw();
+
+    }
+
+
+    function updateUI(){
+
+        scoreEl.textContent = score;
+        levelEl.textContent = level;
+        livesEl.textContent = lives;
+        energyEl.textContent = energy;
+
+    }
+
+
+    function spawnEnemy(){
+
+        if(!running) return;
+
+        const size =
+            24 + Math.random()*16;
+
+        enemies.push({
+
+            x:20 + Math.random() *
+                (canvas.width - 40),
+
+            y:-size,
+
+            size:size,
+
+            speed:
+                1.2 + level*.25 +
+                Math.random()*1.2,
+
+            hp:
+                level >= 5 ? 2 : 1
+
+        });
+
+    }
+
+
+    function shoot(){
+
+        if(!running) return;
+
+        if(energy < 5){
+
+            message.textContent =
+                "⚠ ENERGY LOW!";
+
+            return;
+
+        }
+
+        energy -= 5;
+
+        bullets.push({
+
+            x:player.x,
+
+            y:player.y-18,
+
+            speed:8
+
+        });
+
+        updateUI();
+
+    }
+
+
+    function explode(x,y){
+
+        for(let i=0;i<10;i++){
+
+            particles.push({
+
+                x:x,
+                y:y,
+
+                vx:(Math.random()-.5)*5,
+                vy:(Math.random()-.5)*5,
+
+                life:25
+
+            });
+
+        }
+
+    }
+
+
+    function update(){
+
+        if(!running) return;
+
+
+        /* PLAYER */
+
+        if(keys.left)
+            player.x -= player.speed;
+
+        if(keys.right)
+            player.x += player.speed;
+
+        if(keys.up)
+            player.y -= player.speed;
+
+        if(keys.down)
+            player.y += player.speed;
+
+
+        player.x =
+            Math.max(
+                20,
+                Math.min(
+                    canvas.width-20,
+                    player.x
+                )
+            );
+
+        player.y =
+            Math.max(
+                canvas.height*.55,
+                Math.min(
+                    canvas.height-25,
+                    player.y
+                )
+            );
+
+
+        /* BULLETS */
+
+        bullets.forEach(function(b){
+
+            b.y -= b.speed;
+
+        });
+
+        bullets =
+            bullets.filter(function(b){
+                return b.y > -20;
+            });
+
+
+        /* ENEMIES */
+
+        enemies.forEach(function(e){
+
+            e.y += e.speed;
+
+        });
+
+
+        /* BULLET HIT */
+
+        bullets.forEach(function(b){
+
+            enemies.forEach(function(e){
+
+                const hit =
+                    Math.abs(b.x-e.x) <
+                    e.size/2 + 5 &&
+                    Math.abs(b.y-e.y) <
+                    e.size/2 + 8;
+
+                if(hit && !e.dead){
+
+                    e.hp--;
+
+                    b.y = -100;
+
+                    if(e.hp <= 0){
+
+                        e.dead = true;
+
+                        score += 25;
+
+                        explode(
+                            e.x,
+                            e.y
+                        );
+
+                        level =
+                            Math.floor(
+                                score/200
+                            ) + 1;
+
+                        message.textContent =
+                            "ENEMY DESTROYED! +25 XP";
+
+                    }
+
+                }
+
+            });
+
+        });
+
+
+        enemies =
+            enemies.filter(function(e){
+
+                if(e.dead)
+                    return false;
+
+                if(e.y > canvas.height+40){
+
+                    lives--;
+
+                    explode(
+                        e.x,
+                        canvas.height-30
+                    );
+
+                    message.textContent =
+                        "⚠ GRID DAMAGED!";
+
+                    if(lives <= 0){
+
+                        gameOver();
+
+                    }
+
+                    return false;
+
+                }
+
+                return true;
+
+            });
+
+
+        /* PARTICLES */
+
+        particles.forEach(function(p){
+
+            p.x += p.vx;
+            p.y += p.vy;
+            p.life--;
+
+        });
+
+        particles =
+            particles.filter(function(p){
+                return p.life > 0;
+            });
+
+
+        /* ENERGY */
+
+        if(
+            Math.random() < .02 &&
+            energy < 100
+        ){
+
+            energy++;
+
+        }
+
+
+        updateUI();
+
+    }
+
+
+    function draw(){
+
+        ctx.clearRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        /* GRID */
+
+        ctx.strokeStyle =
+            "#00ff9c0d";
+
+        ctx.lineWidth = 1;
+
+        for(
+            let x=0;
+            x<canvas.width;
+            x+=40
+        ){
+
+            ctx.beginPath();
+            ctx.moveTo(x,0);
+            ctx.lineTo(x,canvas.height);
+            ctx.stroke();
+
+        }
+
+        for(
+            let y=0;
+            y<canvas.height;
+            y+=40
+        ){
+
+            ctx.beginPath();
+            ctx.moveTo(0,y);
+            ctx.lineTo(canvas.width,y);
+            ctx.stroke();
+
+        }
+
+
+        /* PLAYER */
+
+        ctx.save();
+
+        ctx.translate(
+            player.x,
+            player.y
+        );
+
+        ctx.fillStyle =
+            "#00ff9c";
+
+        ctx.shadowColor =
+            "#00ff9c";
+
+        ctx.shadowBlur = 18;
+
+        ctx.beginPath();
+
+        ctx.moveTo(0,-20);
+        ctx.lineTo(18,16);
+        ctx.lineTo(0,9);
+        ctx.lineTo(-18,16);
+
+        ctx.closePath();
+
+        ctx.fill();
+
+        ctx.shadowBlur = 0;
+
+        ctx.fillStyle =
+            "#00180f";
+
+        ctx.fillRect(
+            -5,-3,
+            10,7
+        );
+
+        ctx.restore();
+
+
+        /* BULLETS */
+
+        bullets.forEach(function(b){
+
+            ctx.fillStyle =
+                "#ffffff";
+
+            ctx.shadowColor =
+                "#00ff9c";
+
+            ctx.shadowBlur = 12;
+
+            ctx.fillRect(
+                b.x-2,
+                b.y-12,
+                4,
+                15
+            );
+
+            ctx.shadowBlur = 0;
+
+        });
+
+
+        /* ENEMIES */
+
+        enemies.forEach(function(e){
+
+            ctx.save();
+
+            ctx.translate(
+                e.x,
+                e.y
+            );
+
+            ctx.fillStyle =
+                "#ff3b5c";
+
+            ctx.shadowColor =
+                "#ff3b5c";
+
+            ctx.shadowBlur = 15;
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+                0,
+                e.size/2
+            );
+
+            ctx.lineTo(
+                -e.size/2,
+                -e.size/2
+            );
+
+            ctx.lineTo(
+                e.size/2,
+                -e.size/2
+            );
+
+            ctx.closePath();
+
+            ctx.fill();
+
+            ctx.shadowBlur = 0;
+
+            ctx.fillStyle =
+                "#fff";
+
+            ctx.fillRect(
+                -4,
+                -2,
+                8,
+                4
+            );
+
+            ctx.restore();
+
+        });
+
+
+        /* PARTICLES */
+
+        particles.forEach(function(p){
+
+            ctx.fillStyle =
+                "#00ff9c";
+
+            ctx.globalAlpha =
+                p.life/25;
+
+            ctx.fillRect(
+                p.x,
+                p.y,
+                4,
+                4
+            );
+
+        });
+
+        ctx.globalAlpha = 1;
+
+
+        if(!running){
+
+            ctx.fillStyle =
+                "#00ff9c";
+
+            ctx.font =
+                "bold 22px Arial";
+
+            ctx.textAlign =
+                "center";
+
+            ctx.fillText(
+                "MAD MAX CYBER RAID",
+                canvas.width/2,
+                canvas.height/2
+            );
+
+        }
+
+    }
+
+
+    function gameLoop(){
+
+        update();
+        draw();
+
+        if(running){
+
+            animation =
+                requestAnimationFrame(
+                    gameLoop
+                );
+
+        }
+
+    }
+
+
+    function startGame(){
+
+        if(running) return;
+
+        reset();
+
+        running = true;
+
+        start.textContent =
+            "⚡ RAID RUNNING...";
+
+        message.textContent =
+            "DESTROY THE ENEMY DRONES!";
+
+        spawnTimer =
+            setInterval(
+                spawnEnemy,
+                900
+            );
+
+        gameLoop();
+
+    }
+
+
+    function gameOver(){
+
+        running = false;
+
+        clearInterval(spawnTimer);
+
+        cancelAnimationFrame(
+            animation
+        );
+
+        start.textContent =
+            "↻ PLAY AGAIN";
+
+        message.innerHTML =
+            "💀 GAME OVER — SCORE: <b>" +
+            score +
+            "</b>";
+
+        draw();
+
+    }
+
+
+    start.addEventListener(
+        "click",
+        startGame
+    );
+
+    fire.addEventListener(
+        "click",
+        shoot
+    );
+
+
+    document
+        .querySelectorAll("[data-move]")
+        .forEach(function(btn){
+
+            btn.addEventListener(
+                "pointerdown",
+                function(){
+
+                    const d =
+                        btn.dataset.move;
+
+                    if(d === "left")
+                        keys.left = true;
+
+                    if(d === "right")
+                        keys.right = true;
+
+                    if(d === "up")
+                        keys.up = true;
+
+                    if(d === "down")
+                        keys.down = true;
+
+                }
+            );
+
+            btn.addEventListener(
+                "pointerup",
+                function(){
+
+                    keys.left = false;
+                    keys.right = false;
+                    keys.up = false;
+                    keys.down = false;
+
+                }
+            );
+
+            btn.addEventListener(
+                "pointerleave",
+                function(){
+
+                    keys.left = false;
+                    keys.right = false;
+                    keys.up = false;
+                    keys.down = false;
+
+                }
+            );
+
+        });
+
+
+    document.addEventListener(
+        "keydown",
+        function(e){
+
+            if(e.key === "ArrowLeft")
+                keys.left = true;
+
+            if(e.key === "ArrowRight")
+                keys.right = true;
+
+            if(e.key === "ArrowUp")
+                keys.up = true;
+
+            if(e.key === "ArrowDown")
+                keys.down = true;
+
+            if(e.code === "Space"){
+
+                e.preventDefault();
+                shoot();
+
+            }
+
+        }
+    );
+
+
+    document.addEventListener(
+        "keyup",
+        function(e){
+
+            if(e.key === "ArrowLeft")
+                keys.left = false;
+
+            if(e.key === "ArrowRight")
+                keys.right = false;
+
+            if(e.key === "ArrowUp")
+                keys.up = false;
+
+            if(e.key === "ArrowDown")
+                keys.down = false;
+
+        }
+    );
+
+
+    reset();
+
+})();
+</script>
+
+<!-- ================= END CYBER RAID ================= -->
 </body>
 </html>
