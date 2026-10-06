@@ -2501,6 +2501,418 @@ function mmInstaEscape(text){
 }
 </script>
 
-<!-- ================= END INSTA SECURITY LAB ================= -->
+<!-- ================= MAD MAX // CYBER VISION ================= -->
+
+<style>
+.mm-cyber{
+  width:92%;
+  max-width:760px;
+  margin:70px auto;
+  padding:2px;
+  border-radius:24px;
+  background:linear-gradient(135deg,#00ff9c,#073b2b,#00aaff);
+  box-shadow:0 0 60px #00ff9c22;
+  font-family:Arial,sans-serif;
+}
+
+.mm-cyber-inner{
+  position:relative;
+  overflow:hidden;
+  padding:30px 24px;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 50% 0%,#07352a 0%,#050908 42%,#010202 100%);
+  color:#fff;
+  text-align:center;
+}
+
+.mm-grid{
+  position:absolute;
+  inset:0;
+  opacity:.12;
+  background-image:
+    linear-gradient(#00ff9c 1px,transparent 1px),
+    linear-gradient(90deg,#00ff9c 1px,transparent 1px);
+  background-size:35px 35px;
+  transform:perspective(500px) rotateX(55deg) scale(1.5);
+  transform-origin:center bottom;
+  pointer-events:none;
+}
+
+.mm-content{
+  position:relative;
+  z-index:2;
+}
+
+.mm-badge{
+  display:inline-block;
+  padding:6px 12px;
+  border:1px solid #00ff9c66;
+  border-radius:30px;
+  color:#00ff9c;
+  font:11px monospace;
+  letter-spacing:2px;
+  margin-bottom:15px;
+}
+
+.mm-cyber h2{
+  margin:5px 0;
+  font-size:28px;
+  letter-spacing:1px;
+}
+
+.mm-cyber-sub{
+  color:#7d9a90;
+  font-size:12px;
+  margin-bottom:25px;
+}
+
+.mm-cyber-input{
+  width:100%;
+  padding:16px;
+  box-sizing:border-box;
+  border:1px solid #234d3d;
+  border-radius:10px;
+  background:#020504;
+  color:#00ff9c;
+  outline:none;
+  font-size:15px;
+}
+
+.mm-cyber-input:focus{
+  border-color:#00ff9c;
+  box-shadow:0 0 18px #00ff9c22;
+}
+
+.mm-cyber-btn{
+  width:100%;
+  margin-top:12px;
+  padding:16px;
+  border:0;
+  border-radius:10px;
+  background:linear-gradient(90deg,#00d985,#00ff9c);
+  color:#00140c;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.mm-cyber-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 25px #00ff9c55;
+}
+
+.mm-radar{
+  display:none;
+  width:190px;
+  height:190px;
+  margin:28px auto 15px;
+  border:1px solid #00ff9c66;
+  border-radius:50%;
+  position:relative;
+  background:
+    radial-gradient(circle,#00ff9c18 0 2px,transparent 3px),
+    repeating-radial-gradient(circle,
+      transparent 0 28px,
+      #00ff9c25 29px 30px);
+  box-shadow:0 0 35px #00ff9c22;
+}
+
+.mm-radar:before{
+  content:"";
+  position:absolute;
+  width:50%;
+  height:2px;
+  top:50%;
+  left:50%;
+  transform-origin:left center;
+  background:#00ff9c;
+  box-shadow:0 0 12px #00ff9c;
+  animation:mmSweep 1.4s linear infinite;
+}
+
+@keyframes mmSweep{
+  to{transform:rotate(360deg)}
+}
+
+.mm-core{
+  position:absolute;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#00ff9c;
+  box-shadow:0 0 15px #00ff9c;
+  left:calc(50% - 4px);
+  top:calc(50% - 4px);
+}
+
+.mm-percent{
+  color:#00ff9c;
+  font:700 30px monospace;
+}
+
+.mm-track{
+  height:8px;
+  margin:14px 0;
+  background:#11231c;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.mm-fill{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#00aaff,#00ff9c);
+  box-shadow:0 0 15px #00ff9c;
+  transition:.1s linear;
+}
+
+.mm-terminal{
+  min-height:125px;
+  padding:15px;
+  border:1px solid #153c2d;
+  border-radius:10px;
+  background:#010302;
+  text-align:left;
+  color:#63ffc0;
+  font:12px/1.8 monospace;
+}
+
+.mm-result{
+  display:none;
+  margin-top:22px;
+  padding:22px;
+  border:1px solid #00ff9c66;
+  border-radius:14px;
+  background:#020706;
+}
+
+.mm-success{
+  color:#00ff9c;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.mm-score{
+  margin:18px auto;
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid #00ff9c;
+  color:#00ff9c;
+  font:700 25px monospace;
+  box-shadow:0 0 25px #00ff9c33;
+}
+
+.mm-note{
+  color:#7d968c;
+  font-size:11px;
+  line-height:1.7;
+  margin-top:15px;
+}
+</style>
+
+<section class="mm-cyber">
+
+  <div class="mm-cyber-inner">
+
+    <div class="mm-grid"></div>
+
+    <div class="mm-content">
+
+      <div class="mm-badge">
+        MAD MAX • CYBER VISION
+      </div>
+
+      <h2>⚡ SECURITY ANALYZER</h2>
+
+      <div class="mm-cyber-sub">
+        ADVANCED LOCAL SECURITY SIMULATION
+      </div>
+
+      <input
+        id="mmCyberUser"
+        class="mm-cyber-input"
+        placeholder="Enter test username"
+        autocomplete="off"
+      >
+
+      <button
+        id="mmCyberBtn"
+        class="mm-cyber-btn"
+        onclick="mmCyberStart()"
+      >
+        ▶ INITIALIZE ANALYSIS
+      </button>
+
+      <div id="mmCyberScan">
+
+        <div id="mmCyberRadar" class="mm-radar">
+          <div class="mm-core"></div>
+        </div>
+
+        <div id="mmCyberPercent" class="mm-percent">
+          0%
+        </div>
+
+        <div class="mm-track">
+          <div id="mmCyberFill" class="mm-fill"></div>
+        </div>
+
+        <div id="mmCyberTerminal" class="mm-terminal">
+          &gt; SYSTEM READY...<br>
+          &gt; WAITING FOR INPUT...
+        </div>
+
+      </div>
+
+      <div id="mmCyberResult" class="mm-result">
+
+        <div class="mm-success">
+          ✓ ANALYSIS COMPLETE
+        </div>
+
+        <p id="mmCyberTarget"></p>
+
+        <div class="mm-score">
+          100%
+        </div>
+
+        <b>🔐 CREDENTIAL SECURITY: PROTECTED</b>
+
+        <p class="mm-note">
+          This is a harmless local security simulation.
+          No real Instagram account was accessed and
+          no password was collected or stored.
+        </p>
+
+        <button
+          class="mm-cyber-btn"
+          onclick="mmCyberReset()"
+        >
+          ↻ RUN NEW ANALYSIS
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+
+  var scan=document.getElementById("mmCyberScan");
+  var radar=document.getElementById("mmCyberRadar");
+  var result=document.getElementById("mmCyberResult");
+  var fill=document.getElementById("mmCyberFill");
+  var percent=document.getElementById("mmCyberPercent");
+  var terminal=document.getElementById("mmCyberTerminal");
+  var button=document.getElementById("mmCyberBtn");
+
+  scan.style.display="none";
+
+  window.mmCyberStart=function(){
+
+    var user=document.getElementById("mmCyberUser").value.trim();
+
+    if(!user){
+      alert("Test username enter karo 😎");
+      return;
+    }
+
+    scan.style.display="block";
+    radar.style.display="block";
+    result.style.display="none";
+
+    button.disabled=true;
+    button.innerText="⏳ ANALYZING...";
+
+    var progress=0;
+
+    var logs=[
+      "Booting analysis engine...",
+      "Validating target format...",
+      "Mapping public security indicators...",
+      "Checking authentication protection...",
+      "Analyzing rate-limit status...",
+      "Checking credential exposure...",
+      "Credential protection confirmed.",
+      "Building security report...",
+      "Final verification..."
+    ];
+
+    var timer=setInterval(function(){
+
+      progress++;
+
+      fill.style.width=progress+"%";
+      percent.innerText=progress+"%";
+
+      var index=Math.floor(progress/12);
+
+      if(index>=logs.length)
+        index=logs.length-1;
+
+      terminal.innerHTML=
+        "&gt; "+logs[index]+
+        "<br>&gt; PROCESS: "+
+        progress+"%"+
+        "<br>&gt; STATUS: "+
+        (progress<100 ? "RUNNING" : "COMPLETE");
+
+      if(progress>=100){
+
+        clearInterval(timer);
+
+        setTimeout(function(){
+
+          scan.style.display="none";
+          result.style.display="block";
+
+          document.getElementById("mmCyberTarget")
+            .innerHTML=
+            "Test target: <b>"+
+            mmCyberEscape(user)+
+            "</b>";
+
+          button.disabled=false;
+          button.innerText="▶ INITIALIZE ANALYSIS";
+
+        },800);
+      }
+
+    },100);
+  };
+
+  window.mmCyberReset=function(){
+
+    result.style.display="none";
+    scan.style.display="none";
+    radar.style.display="none";
+
+    fill.style.width="0%";
+    percent.innerText="0%";
+
+    terminal.innerHTML=
+      "&gt; SYSTEM READY...<br>"+
+      "&gt; WAITING FOR INPUT...";
+
+    document.getElementById("mmCyberUser").value="";
+  };
+
+  function mmCyberEscape(text){
+    var div=document.createElement("div");
+    div.textContent=text;
+    return div.innerHTML;
+  }
+
+})();
+</script>
+
+<!-- ================= END CYBER VISION ================= -->
 </body>
 </html>
