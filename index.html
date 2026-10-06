@@ -3984,7 +3984,142 @@ CYBER SECURITY LAB MAD MAX TERMINAL
 
 })();
 </script>
+<!-- ================= MAD MAX CYBER GAME ================= -->
 
+<style>
+.mm-game{
+    width:94%;
+    max-width:900px;
+    margin:45px auto;
+    padding:20px;
+    background:#020806;
+    border:1px solid #00ff9c;
+    border-radius:18px;
+    color:#dffff2;
+    font-family:Arial,sans-serif;
+    box-shadow:0 0 30px #00ff9c22;
+}
+
+.mm-game-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
+
+.mm-game-title{
+    color:#00ff9c;
+    font-size:20px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.mm-game-stats{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.mm-game-stat{
+    padding:8px 12px;
+    background:#06130e;
+    border:1px solid #164b37;
+    border-radius:7px;
+    color:#00ff9c;
+    font-family:monospace;
+}
+
+.mm-game-screen{
+    position:relative;
+    height:380px;
+    overflow:hidden;
+    border:1px solid #123d2d;
+    border-radius:12px;
+    background:
+        linear-gradient(#00ff9c09 1px,transparent 1px),
+        linear-gradient(90deg,#00ff9c09 1px,transparent 1px),
+        #010403;
+    background-size:30px 30px;
+}
+
+.mm-game-screen:before{
+    content:"CYBER DEFENSE GRID";
+    position:absolute;
+    top:12px;
+    left:15px;
+    color:#315d4c;
+    font:11px monospace;
+}
+
+.mm-target{
+    position:absolute;
+    width:54px;
+    height:54px;
+    border:2px solid #00ff9c;
+    border-radius:50%;
+    background:#03130d;
+    color:#00ff9c;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+    cursor:pointer;
+    user-select:none;
+    box-shadow:0 0 18px #00ff9c55;
+    transition:transform .12s;
+}
+
+.mm-target:active{
+    transform:scale(.75);
+}
+
+.mm-game-start{
+    margin-top:15px;
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:8px;
+    background:#00d985;
+    color:#00170e;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.mm-game-message{
+    text-align:center;
+    margin-top:12px;
+    color:#8ba99d;
+    min-height:20px;
+    font-family:monospace;
+}
+
+.mm-game-result{
+    display:none;
+    text-align:center;
+    margin-top:15px;
+    padding:15px;
+    border:1px solid #164b37;
+    border-radius:10px;
+    background:#03100b;
+}
+
+.mm-game-score{
+    color:#00ff9c;
+    font-size:30px;
+    font-weight:bold;
+}
+
+@media(max-width:600px){
+    .mm-game-screen{
+        height:330px;
+    }
+
+    .mm-target{
+        width:48px;
+        height:
 <!-- ================= END MAD MAX COMMAND CENTER ================= -->
 </body>
 </html>
